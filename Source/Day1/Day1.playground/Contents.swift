@@ -37,6 +37,24 @@ class Solution {
             return "\($0)"
         }
     }
+    
+    /// simple
+    static func numberOfSteps(_ num: Int) -> Int {
+        var steps = 0
+        var running = num
+        while running > 0 {
+            if running % 2 == 0 { running /= 2 }
+            else { running -= 1}
+            steps += 1
+        }
+        return steps
+    }
+    
+    /// bitwise
+    static func numberOfSteps2(_ num: Int) -> Int {
+        if num == 0 { return 0 }
+        return num.bitWidth - num.leadingZeroBitCount + num.nonzeroBitCount - 1
+    }
 }
 
 print(Solution.runningSum([1,2,3,4]))
