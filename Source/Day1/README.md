@@ -54,3 +54,12 @@ In one step, if the current number is even, you have to divide it by 2, otherwis
 > Step 5) 2 is even; divide by 2 and obtain 1. 
 > Step 6) 1 is odd; subtract 1 and obtain 0.
 
+## 5. Middle of the Linked List
+
+Given the head of a singly linked list, return the middle node of the linked list.
+
+If there are two middle nodes, return the second middle node.
+
+> Input: head = [1,2,3,4,5]
+> Output: [3,4,5]
+> Explanation: The middle node of the list is node 3.
