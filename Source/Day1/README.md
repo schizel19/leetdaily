@@ -1,6 +1,6 @@
 # Problems
 
-[Ref](https://leetcode.com/explore/learn/card/the-leetcode-beginners-guide/692/challenge-problems/4426/)
+[Ref](https://leetcode.com/explore/learn/card/the-leetcode-beginners-guide/679/sql-syntax/4357/)
 
 ## 1. Running Sum of 1d Array
 
