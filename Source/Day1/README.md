@@ -22,3 +22,15 @@ A customer's wealth is the amount of money they have in all their bank accounts.
 > 1st customer has wealth = 1 + 2 + 3 = 6
 > 2nd customer has wealth = 3 + 2 + 1 = 6
 > Both customers are considered the richest with a wealth of 6 each, so return 6.
+
+## 3. Fizz Buzz
+
+Given an integer n, return a string array answer (1-indexed) where:
+
+* answer[i] == "FizzBuzz" if i is divisible by 3 and 5.
+* answer[i] == "Fizz" if i is divisible by 3.
+* answer[i] == "Buzz" if i is divisible by 5.
+* answer[i] == i (as a string) if none of the above conditions are true.
+
+> Input: n = 3
+> Output: ["1","2","Fizz"]
