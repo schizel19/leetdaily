@@ -63,3 +63,13 @@ If there are two middle nodes, return the second middle node.
 > Input: head = [1,2,3,4,5]
 > Output: [3,4,5]
 > Explanation: The middle node of the list is node 3.
+
+## 6. Ransom Note
+
+Given two strings ransomNote and magazine, return true if ransomNote can be constructed by using the letters from magazine and false otherwise.
+
+Each letter in magazine can only be used once in ransomNote.
+
+> Input: ransomNote = "a", magazine = "b"
+> Output: false
+

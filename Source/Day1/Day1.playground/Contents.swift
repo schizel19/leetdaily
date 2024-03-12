@@ -95,6 +95,29 @@ class Solution {
         
         return slow
     }
+    
+    static func canConstruct(_ ransomNote: String, _ magazine: String) -> Bool {
+        if magazine.count < ransomNote.count { return false }
+        if magazine.count == 1, ransomNote.count == 1 { return magazine == ransomNote }
+        var ransomMap = [Character: Int]()
+        for char in ransomNote {
+            let value = ransomMap[char, default: 0]
+            ransomMap[char] = value + 1
+        }
+        for char in magazine {
+            let value = ransomMap[char] ?? 0
+            if (value - 1) <= 0 {
+                ransomMap.removeValue(forKey: char)
+            } else {
+                ransomMap[char] = value - 1
+            }
+            
+            if ransomMap.isEmpty {
+                return true
+            }
+        }
+        return false
+    }
 }
 
 print(Solution.runningSum([1,2,3,4]))
@@ -105,3 +128,6 @@ print(Solution.maximumWealth([[1,2,3],[3,2,1]]))
 print(Solution.fizzBuzz(15))
 print(Solution.numberOfSteps(14))
 print(Solution.numberOfSteps2(14))
+print(Solution.canConstruct("a", "b"))
+print(Solution.canConstruct("aa", "ab"))
+print(Solution.canConstruct("aa", "aab"))
