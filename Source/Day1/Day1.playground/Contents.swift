@@ -1,5 +1,3 @@
-import UIKit
-
 class Solution {
     /// simple
     static func runningSum(_ nums: [Int]) -> [Int] {
