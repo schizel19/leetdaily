@@ -1,6 +1,3 @@
-# Leet Daily
-This repository is for daily leet practice
-
 ## Table of Content
 - [Day 2 - Arrays 101 (pt. 1)](./Source%2FDay2%2FREADME.md#day-2---arrays-101-pt-1)
   * [1. Max Consecutive Ones](./Source%2FDay2%2FREADME.md#1-max-consecutive-ones)
@@ -15,6 +12,3 @@ This repository is for daily leet practice
   * [4. Number of Steps to Reduce a Number to Zero](./Source%2FDay1%2FREADME.md#4-number-of-steps-to-reduce-a-number-to-zero)
   * [5. Middle of the Linked List](./Source%2FDay1%2FREADME.md#5-middle-of-the-linked-list)
   * [6. Ransom Note](./Source%2FDay1%2FREADME.md#6-ransom-note)
-
-### Resources
-- [LeetCode](https://leetcode.com/explore/learn)
