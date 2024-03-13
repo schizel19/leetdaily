@@ -1,4 +1,4 @@
-#  Day 2 - Arrays (pt. 1)
+#  Day 2 - Arrays 101 (pt. 1)
 
 ## 1. Max Consecutive Ones
 

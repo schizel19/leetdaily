@@ -1,4 +1,8 @@
-toc ../Source -o TableOfContents.md
+cd ..
+
+toc ./Source -o Resource/TableOfContents.md
+
+cd Resource
 
 format_file="Format.md"
 content_file="TableOfContents.md"
