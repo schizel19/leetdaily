@@ -12,6 +12,13 @@ class Solution {
         }
         return max(runningMax, runningCounter)
     }
+    
+    // simple
+    static func findNumbers(_ nums: [Int]) -> Int {
+        return nums.filter { String($0).count % 2 == 0 }.count
+    }
+    
 }
 
 print(Solution.findMaxConsecutiveOnes([1,1,0,1,1,1]))
+print(Solution.findNumbers([555,901,482,1771]))
