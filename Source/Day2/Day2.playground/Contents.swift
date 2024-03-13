@@ -93,6 +93,23 @@ class Solution {
             }
         }
     }
+    
+    static func merge(_ nums1: inout [Int], _ m: Int, _ nums2: [Int], _ n: Int) {
+        var tracker = nums1.count - 1
+        var left = m - 1
+        var right = n - 1
+        
+        while right >= 0 {
+            if left >= 0 && nums1[left] > nums2[right] {
+                nums1[tracker] = nums1[left]
+                left -= 1
+            } else {
+                nums1[tracker] = nums2[right]
+                right -= 1
+            }
+            tracker -= 1
+        }
+    }
 }
 
 print(Solution.findMaxConsecutiveOnes([1,1,0,1,1,1]))
@@ -107,3 +124,7 @@ print(array)
 var array2 = [1,0,2,3,0,4,5,0]
 Solution.duplicateZeros2(&array2)
 print(array2)
+
+
+var array3 = [1,2,3,0,0,0]
+Solution.merge(&array3, 3, [2,5,6], 3)
