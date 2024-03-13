@@ -36,3 +36,15 @@ Output: [0,1,9,16,100]
 Explanation: After squaring, the array becomes [16,1,0,9,100].
 After sorting, it becomes [0,1,9,16,100].
 ```
+
+## 4. Duplicate Zeros
+
+Given a fixed-length integer array arr, duplicate each occurrence of zero, shifting the remaining elements to the right.
+
+*Note* that elements beyond the length of the original array are not written. Do the above modifications to the input array in place and do not return anything.
+
+```
+Input: arr = [1,0,2,3,0,4,5,0]
+Output: [1,0,0,2,3,0,0,4]
+Explanation: After calling your function, the input array is modified to: [1,0,0,2,3,0,0,4]
+```
