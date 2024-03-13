@@ -1,4 +1,4 @@
-# Problems
+# Day 1 - Beginner Challenge Problems
 
 [Ref](https://leetcode.com/explore/learn/card/the-leetcode-beginners-guide/679/sql-syntax/4357/)
 
