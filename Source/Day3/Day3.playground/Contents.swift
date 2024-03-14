@@ -52,6 +52,46 @@ class Solution {
         }
         return false
     }
+    
+    // one way
+    static func validMountainArray(_ arr: [Int]) -> Bool {
+        if arr.count < 3 { return false }
+        if arr[0] > arr[1] { return false }
+        var isMovingUp = true
+        
+        var index = 0
+        
+        while index < arr.count - 1 && isMovingUp {
+            if arr[index] == arr[index + 1] { return false }
+            if arr[index] > arr[index + 1] {
+                isMovingUp = false
+            }
+            index += 1
+        }
+        
+        while index < arr.count - 1 && !isMovingUp {
+            if arr[index] == arr[index + 1] { return false }
+            if arr[index] < arr[index + 1] {
+                return false
+            }
+            index += 1
+        }
+        
+        return !isMovingUp
+    }
+    
+    // two pointer
+    static func validMountainArray2(_ arr: [Int]) -> Bool {
+        var left = 0, right = arr.count - 1
+        while left + 1 < arr.count, arr[left] < arr[left + 1] {
+            left += 1
+        }
+        while right > 0, arr[right - 1] > arr[right] {
+            right -= 1
+        }
+        return left > 0 && left == right && right < arr.count - 1
+    }
+    
 }
 
 
@@ -76,3 +116,20 @@ print(array4)
 print(Solution.checkIfExist([10,2,5,3]))
 print(Solution.checkIfExist([3,1,7,11]))
 print(Solution.checkIfExist([4,-7,11,4,18]))
+
+print(Solution.validMountainArray([2, 1]))
+print(Solution.validMountainArray([3, 5, 5]))
+print(Solution.validMountainArray([0, 3, 2, 1]))
+print(Solution.validMountainArray([6, 6, 3, 3]))
+print(Solution.validMountainArray([0,1,2,4,2,1]))
+print(Solution.validMountainArray([2,1,2,3,5,7,9,10,12,14,15,16,18,14,13]))
+print(Solution.validMountainArray([9,8,7,6,5,4,3,2,1,0]))
+
+print(Solution.validMountainArray2([2, 1]))
+print(Solution.validMountainArray2([3, 5, 5]))
+print(Solution.validMountainArray2([0, 3, 2, 1]))
+print(Solution.validMountainArray2([6, 6, 3, 3]))
+print(Solution.validMountainArray2([0,1,2,4,2,1]))
+print(Solution.validMountainArray2([2,1,2,3,5,7,9,10,12,14,15,16,18,14,13]))
+print(Solution.validMountainArray2([9,8,7,6,5,4,3,2,1,0]))
+
