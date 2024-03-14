@@ -38,6 +38,20 @@ class Solution {
         }
         return count
     }
+    
+    static func checkIfExist(_ arr: [Int]) -> Bool {
+        var dic = [Int: Int]()
+        for num in arr {
+            if let _ = dic[num * 2] {
+                return true
+            } else if num % 2 == 0, let _ = dic[num/2] {
+                return true
+            } else {
+                dic[num] = 1
+            }
+        }
+        return false
+    }
 }
 
 
@@ -58,3 +72,7 @@ print(array3)
 var array4 = [0,0,1,1,1,2,2,3,3,4]
 print(Solution.removeDuplicates2(&array4))
 print(array4)
+
+print(Solution.checkIfExist([10,2,5,3]))
+print(Solution.checkIfExist([3,1,7,11]))
+print(Solution.checkIfExist([4,-7,11,4,18]))

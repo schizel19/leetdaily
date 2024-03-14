@@ -70,3 +70,17 @@ Output: 2, nums = [1,2,_]
 Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
 It does not matter what you leave beyond the returned k (hence they are underscores).
 ```
+
+## 3. Check If N and Its Double Exist
+
+Given an array arr of integers, check if there exist two indices i and j such that :
+
+- i != j
+- 0 <= i, j < arr.length
+- arr[i] == 2 * arr[j]
+
+```
+Input: arr = [10,2,5,3]
+Output: true
+Explanation: For i = 0 and j = 2, arr[i] == 10 == 2 * 5 == 2 * arr[j]
+```
