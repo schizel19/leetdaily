@@ -2,6 +2,11 @@
 This repository is for daily leet practice
 
 ## Table of Content
+- [Day 3 - Arrays 101 (pt. 2)](./Source%2FDay3%2FREADME.md#day-3---arrays-101-pt-2)
+  * [1. Remove Element](./Source%2FDay3%2FREADME.md#1-remove-element)
+  * [2. Remove Duplicates from Sorted Array](./Source%2FDay3%2FREADME.md#2-remove-duplicates-from-sorted-array)
+  * [3. Check If N and Its Double Exist](./Source%2FDay3%2FREADME.md#3-check-if-n-and-its-double-exist)
+  * [4. Valid Mountain Array](./Source%2FDay3%2FREADME.md#4-valid-mountain-array)
 - [Day 2 - Arrays 101 (pt. 1)](./Source%2FDay2%2FREADME.md#day-2---arrays-101-pt-1)
   * [1. Max Consecutive Ones](./Source%2FDay2%2FREADME.md#1-max-consecutive-ones)
   * [2. Find numbers with Even Number of Digits](./Source%2FDay2%2FREADME.md#2-find-numbers-with-even-number-of-digits)
