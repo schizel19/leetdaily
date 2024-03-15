@@ -2,6 +2,12 @@
 This repository is for daily leet practice
 
 ## Table of Content
+- [Day 4 - Arrays 101 (pt. 3)](./Source%2FDay4%2FREADME.md#day-4---arrays-101-pt-3)
+  * [1. Replace Elements with Greatest Element on Right Side](./Source%2FDay4%2FREADME.md#1-replace-elements-with-greatest-element-on-right-side)
+  * [2. Remove Duplicates from Sorted Array](./Source%2FDay4%2FREADME.md#2-remove-duplicates-from-sorted-array)
+  * [3. Move Zeroes](./Source%2FDay4%2FREADME.md#3-move-zeroes)
+  * [4. Sort Array By Parity](./Source%2FDay4%2FREADME.md#4-sort-array-by-parity)
+  * [5. Remove Element](./Source%2FDay4%2FREADME.md#5-remove-element)
 - [Day 3 - Arrays 101 (pt. 2)](./Source%2FDay3%2FREADME.md#day-3---arrays-101-pt-2)
   * [1. Remove Element](./Source%2FDay3%2FREADME.md#1-remove-element)
   * [2. Remove Duplicates from Sorted Array](./Source%2FDay3%2FREADME.md#2-remove-duplicates-from-sorted-array)

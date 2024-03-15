@@ -1,4 +1,4 @@
-#  Day 2 - Arrays 101 (pt. 1)
+#  [Day 2 - Arrays 101 (pt. 1)](https://leetcode.com/explore/learn/card/fun-with-arrays/521/introduction/)
 
 ## 1. Max Consecutive Ones
 
