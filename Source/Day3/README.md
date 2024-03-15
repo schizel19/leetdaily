@@ -1,4 +1,4 @@
-#  Day 3 - Arrays 101 (pt. 2)
+#  [Day 3 - Arrays 101 (pt. 2)](https://leetcode.com/explore/learn/card/fun-with-arrays/526/deleting-items-from-an-array/)
 
 ## 1. Remove Element
 
