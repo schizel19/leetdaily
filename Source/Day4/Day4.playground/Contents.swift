@@ -15,23 +15,16 @@ class Solution {
     
     static func removeDuplicates(_ nums: inout [Int]) -> Int {
         if nums.count == 1 { return 1 }
-        var unique = 1
-        var fastIndex = 1
-        var slowIndex = 0
-        var currentValue = nums[slowIndex]
+        var writePointer = 1
         
-        while fastIndex < nums.count {
-            if nums[fastIndex] == currentValue {
-                fastIndex += 1
-            } else {
-                unique += 1
-                nums[slowIndex] = currentValue
-                currentValue = nums[fastIndex]
-                slowIndex += 1
+        for readPointer in 1..<nums.count {
+            if nums[readPointer] != nums[readPointer - 1] {
+                nums[writePointer] = nums[readPointer]
+                writePointer += 1
             }
         }
-        nums[slowIndex] = currentValue
-        return unique
+        
+        return writePointer
     }
 }
 
