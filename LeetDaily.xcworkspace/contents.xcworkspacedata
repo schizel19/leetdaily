@@ -37,5 +37,15 @@
             location = "group:Source/Day3/README.md">
          </FileRef>
       </Group>
+      <Group
+         location = "group:/Users/iosdev/Desktop/leetdaily/Source/Day4"
+         name = "Day4">
+         <FileRef
+            location = "group:Day4.playground">
+         </FileRef>
+         <FileRef
+            location = "group:README.md">
+         </FileRef>
+      </Group>
    </Group>
 </Workspace>
