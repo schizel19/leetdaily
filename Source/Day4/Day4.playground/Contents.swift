@@ -26,6 +26,21 @@ class Solution {
         
         return writePointer
     }
+    
+    static func moveZeroes(_ nums: inout [Int]) {
+        var writePointer = 0
+        var readPointer = 0
+        
+        while readPointer < nums.count {
+            if nums[readPointer] != 0 {
+                nums.swapAt(writePointer, readPointer)
+                writePointer += 1
+                readPointer += 1
+            } else {
+                readPointer += 1
+            }
+        }
+    }
 }
 
 print(Solution.replaceElements([17,18,5,4,6,1]))
@@ -38,3 +53,15 @@ print(array3)
 var array4 = [0,0,1,1,1,2,2,3,3,4]
 print(Solution.removeDuplicates(&array4))
 print(array4)
+
+var array5 = [0,1,0,3,12]
+print(Solution.moveZeroes(&array5))
+print(array5)
+
+var array6 = [0]
+print(Solution.moveZeroes(&array6))
+print(array6)
+
+var array7 = [1, 0]
+print(Solution.moveZeroes(&array7))
+print(array7)
