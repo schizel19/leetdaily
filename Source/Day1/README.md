@@ -1,7 +1,5 @@
 # [Day 1 - Beginner Challenge Problems](https://leetcode.com/explore/learn/card/the-leetcode-beginners-guide/692/challenge-problems/)
 
-[Ref](https://leetcode.com/explore/learn/card/the-leetcode-beginners-guide/679/sql-syntax/4357/)
-
 ## 1. Running Sum of 1d Array
 
 Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]).
