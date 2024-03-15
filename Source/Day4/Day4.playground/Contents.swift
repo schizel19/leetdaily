@@ -41,6 +41,23 @@ class Solution {
             }
         }
     }
+    
+    static func sortArrayByParity(_ nums: [Int]) -> [Int] {
+        if nums.count == 1 { return nums }
+        var nums = nums
+        var readPointer = 0
+        var writePointer = 0
+        while readPointer < nums.count {
+            if nums[readPointer] % 2 == 0 {
+                nums.swapAt(writePointer, readPointer)
+                writePointer += 1
+                readPointer += 1
+            } else {
+                readPointer += 1
+            }
+        }
+        return nums
+    }
 }
 
 print(Solution.replaceElements([17,18,5,4,6,1]))
@@ -65,3 +82,6 @@ print(array6)
 var array7 = [1, 0]
 print(Solution.moveZeroes(&array7))
 print(array7)
+
+print(Solution.sortArrayByParity([3,1,2,4]))
+print(Solution.sortArrayByParity([0]))
