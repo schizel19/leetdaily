@@ -80,6 +80,42 @@ class Solution {
         }
         return nums
     }
+    
+    // two pointer
+    static func removeElement(_ nums: inout [Int], _ val: Int) -> Int {
+        if nums.count == 1 {
+            return nums[0] == val ? 0 : 1
+        }
+        
+        var left = 0
+        var right = nums.count - 1
+        while left <= right {
+            if nums[left] == val {
+                if nums[right] != val {
+                    nums.swapAt(left, right)
+                    left += 1
+                }
+                right -= 1
+                continue;
+            } else {
+                left += 1
+            }
+        }
+        
+        return left
+    }
+    
+    // one pointer
+    static func removeElement2(_ nums: inout [Int], _ val: Int) -> Int {
+        var count = 0
+        for num in nums {
+            if num != val {
+                nums[count] = num
+                count += 1
+            }
+        }
+        return count
+    }
 }
 
 print(Solution.replaceElements([17,18,5,4,6,1]))
@@ -112,3 +148,18 @@ print(Solution.sortArrayByParity([0]))
 print(Solution.sortArrayByParity2([3,1,2,4]))
 print(Solution.sortArrayByParity2([0]))
 
+var array = [0,1,2,2,3,0,4,2]
+print(Solution.removeElement(&array, 2))
+print(array)
+
+var array2 = [3, 2, 2, 3]
+print(Solution.removeElement(&array2, 2))
+print(array2)
+
+var array8 = [0,1,2,2,3,0,4,2]
+print(Solution.removeElement2(&array8, 2))
+print(array8)
+
+var array9 = [3, 2, 2, 3]
+print(Solution.removeElement2(&array9, 2))
+print(array9)
