@@ -42,6 +42,7 @@ class Solution {
         }
     }
     
+    // same direction
     static func sortArrayByParity(_ nums: [Int]) -> [Int] {
         if nums.count == 1 { return nums }
         var nums = nums
@@ -54,6 +55,27 @@ class Solution {
                 readPointer += 1
             } else {
                 readPointer += 1
+            }
+        }
+        return nums
+    }
+    
+    // opposite direction
+    static func sortArrayByParity2(_ nums: [Int]) -> [Int] {
+        if nums.count == 1 { return nums }
+        var nums = nums
+        var left = 0
+        var right = nums.count - 1
+        while left < right {
+            if nums[left] % 2 == 1 {
+                if nums[right] % 2 == 0  {
+                    nums.swapAt(left, right)
+                    left += 1
+                }
+                right -= 1
+                continue
+            } else {
+                left += 1
             }
         }
         return nums
@@ -85,3 +107,8 @@ print(array7)
 
 print(Solution.sortArrayByParity([3,1,2,4]))
 print(Solution.sortArrayByParity([0]))
+
+
+print(Solution.sortArrayByParity2([3,1,2,4]))
+print(Solution.sortArrayByParity2([0]))
+
