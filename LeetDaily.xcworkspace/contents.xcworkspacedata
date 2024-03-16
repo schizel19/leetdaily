@@ -28,6 +28,16 @@
          </FileRef>
       </Group>
       <Group
+         location = "group:/Users/patrickdomingo/Desktop/leetdaily/Source/Day4"
+         name = "Day4">
+         <FileRef
+            location = "group:Day4.playground">
+         </FileRef>
+         <FileRef
+            location = "group:README.md">
+         </FileRef>
+      </Group>
+      <Group
          location = "container:"
          name = "Day3">
          <FileRef
@@ -38,13 +48,13 @@
          </FileRef>
       </Group>
       <Group
-         location = "group:/Users/iosdev/Desktop/leetdaily/Source/Day4"
-         name = "Day4">
-         <FileRef
-            location = "group:Day4.playground">
-         </FileRef>
+         location = "group:Day5"
+         name = "Day5">
          <FileRef
             location = "group:README.md">
+         </FileRef>
+         <FileRef
+            location = "group:Day5.playground">
          </FileRef>
       </Group>
    </Group>

@@ -1,4 +1,4 @@
-#  [Day 4 - Arrays 101 (pt. 3)](https://leetcode.com/explore/learn/card/fun-with-arrays/511/in-place-operations/)
+#  [Day 4 - Arrays 101: In-Place Operations (pt. 3)](https://leetcode.com/explore/learn/card/fun-with-arrays/511/in-place-operations/)
 
 ## 1. Replace Elements with Greatest Element on Right Side
 
