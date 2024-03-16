@@ -79,6 +79,26 @@ class Solution {
         
         return max3 == Int.min ? max1 : max3
     }
+    
+    static func findDisappearedNumbers(_ nums: [Int]) -> [Int] {
+        var notFound = [Int]()
+        var nums = nums
+        
+        for index in 0..<nums.count {
+            var temp = abs(nums[index]) - 1
+            if nums[temp] > 0 {
+                nums[temp] *= -1
+            }
+        }
+        
+        for (index, num) in nums.enumerated() {
+            if num > 0 {
+                notFound.append(index + 1)
+            }
+        }
+        
+        return notFound
+    }
 }
 
 
@@ -98,3 +118,6 @@ print(Solution.thirdMax([2,3,2,1]))
 print(Solution.thirdMax2([3,2,1]))
 print(Solution.thirdMax2([2,1]))
 print(Solution.thirdMax2([2,3,2,1]))
+
+print(Solution.findDisappearedNumbers([4,3,2,7,8,2,3,1]))
+print(Solution.findDisappearedNumbers([1,1]))
