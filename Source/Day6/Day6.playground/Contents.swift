@@ -52,6 +52,26 @@ class Solution {
         
         return max!.offset
     }
+    
+    static func plusOne(_ digits: [Int]) -> [Int] {
+        var carry = 1
+        var digits = digits
+        
+        for index in stride(from: digits.count - 1, through: 0, by: -1) {
+            let runningSum = digits[index] + carry
+            digits[index] = runningSum % 10
+            carry = runningSum / 10
+            if carry == 0 {
+                break
+            }
+        }
+        
+        if carry == 1 {
+            digits.insert(1, at: 0)
+        }
+        
+        return digits
+    }
 }
 
 print(Solution.pivotIndex([1,7,3,6,5,6]))
@@ -60,3 +80,6 @@ print(Solution.pivotIndex([2,1,-1]))
 print(Solution.pivotIndex([0]))
 print(Solution.dominantIndex([3,6,1,0]))
 print(Solution.dominantIndex([1,2,3,4]))
+print(Solution.plusOne([9]))
+print(Solution.plusOne([4,3,2,1]))
+print(Solution.plusOne([1,2,3]))
