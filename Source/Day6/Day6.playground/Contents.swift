@@ -37,9 +37,26 @@ class Solution {
         
         return -1
     }
+    
+    static func dominantIndex(_ nums: [Int]) -> Int {
+        let max = nums.enumerated().max { a, b in
+            a.element < b.element
+        }
+        
+        for (index, num) in nums.enumerated() {
+            if index == max!.offset { continue }
+            if num * 2 > max!.element {
+                return -1
+            }
+        }
+        
+        return max!.offset
+    }
 }
 
 print(Solution.pivotIndex([1,7,3,6,5,6]))
 print(Solution.pivotIndex([1,2,3]))
 print(Solution.pivotIndex([2,1,-1]))
 print(Solution.pivotIndex([0]))
+print(Solution.dominantIndex([3,6,1,0]))
+print(Solution.dominantIndex([1,2,3,4]))
