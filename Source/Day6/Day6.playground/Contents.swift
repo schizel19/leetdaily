@@ -72,14 +72,55 @@ class Solution {
         
         return digits
     }
+    
+    static func findDiagonalOrder(_ mat: [[Int]]) -> [Int] {
+        var result = [Int]()
+        var i = 0
+        var j = 0
+        let n = mat.count
+        let m = mat[0].count
+        
+        var direction: Bool = true // up
+        while i < n, j < m {
+            result.append(mat[i][j])
+            
+            if direction {
+                if j + 1 == m {
+                    direction = false
+                    i += 1
+                } else if i == 0 {
+                    direction = false
+                    j += 1
+                } else {
+                    j += 1
+                    i -= 1
+                }
+            } else {
+                if i + 1 == n {
+                    direction = true
+                    j += 1
+                } else if j == 0 {
+                    direction = true
+                    i += 1
+                } else {
+                    i += 1
+                    j -= 1
+                }
+            }
+        }
+            
+        return result
+    }
 }
 
-print(Solution.pivotIndex([1,7,3,6,5,6]))
-print(Solution.pivotIndex([1,2,3]))
-print(Solution.pivotIndex([2,1,-1]))
-print(Solution.pivotIndex([0]))
-print(Solution.dominantIndex([3,6,1,0]))
-print(Solution.dominantIndex([1,2,3,4]))
-print(Solution.plusOne([9]))
-print(Solution.plusOne([4,3,2,1]))
-print(Solution.plusOne([1,2,3]))
+//print(Solution.pivotIndex([1,7,3,6,5,6]))
+//print(Solution.pivotIndex([1,2,3]))
+//print(Solution.pivotIndex([2,1,-1]))
+//print(Solution.pivotIndex([0]))
+//print(Solution.dominantIndex([3,6,1,0]))
+//print(Solution.dominantIndex([1,2,3,4]))
+//print(Solution.plusOne([9]))
+//print(Solution.plusOne([4,3,2,1]))
+//print(Solution.plusOne([1,2,3]))
+print(Solution.findDiagonalOrder([[1,2,3],[4,5,6],[7,8,9]]))
+print(Solution.findDiagonalOrder([[1,2],[3,4]]))

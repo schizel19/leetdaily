@@ -83,3 +83,15 @@ Explanation: The array represents the integer 9.
 Incrementing by one gives 9 + 1 = 10.
 Thus, the result should be [1,0].
 ```
+
+## 4. Given an m x n matrix mat, return an array of all the elements of the array in a diagonal order.
+
+```
+Input: mat = [[1,2,3],[4,5,6],[7,8,9]]
+Output: [1,2,4,7,5,3,6,8,9]
+```
+
+```
+Input: mat = [[1,2],[3,4]]
+Output: [1,2,3,4]
+```
