@@ -1,4 +1,4 @@
-#  [Day 2 - Arrays 101: Introduction and Inserting(pt. 1)](https://leetcode.com/explore/learn/card/fun-with-arrays/521/introduction/)
+#  [Day 2 - Arrays 101: Introduction and Inserting (pt. 1)](https://leetcode.com/explore/learn/card/fun-with-arrays/521/introduction/)
 
 ## 1. Max Consecutive Ones
 
