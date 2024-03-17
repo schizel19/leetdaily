@@ -142,6 +142,25 @@ class Solution {
         }
         return arr
     }
+    
+    static func generate(_ numRows: Int) -> [[Int]] {
+        if numRows == 1 { return [[1]] }
+        if numRows == 2 { return [[1], [1, 1]]}
+        
+        var triangle = [[1]]
+        
+        for row in 1..<numRows {
+            var numRow = [1]
+            for column in 1..<row {
+                print(row, column)
+                numRow.append(triangle[row - 1][column - 1] + triangle[row - 1][column])
+            }
+            numRow.append(1)
+            triangle.append(numRow)
+        }
+        
+        return triangle
+    }
 }
 
 print(Solution.pivotIndex([1,7,3,6,5,6]))
@@ -157,3 +176,5 @@ print(Solution.findDiagonalOrder([[1,2,3],[4,5,6],[7,8,9]]))
 print(Solution.findDiagonalOrder([[1,2],[3,4]]))
 print(Solution.spiralOrder([[1,2,3],[4,5,6],[7,8,9]]))
 print(Solution.spiralOrder([[1,2,3,4],[5,6,7,8],[9,10,11,12]]))
+print(Solution.generate(5))
+print(Solution.generate(1))
