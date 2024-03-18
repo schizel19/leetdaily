@@ -4,10 +4,94 @@
    <FileRef
       location = "group:README.md">
    </FileRef>
-   <FileRef
-      location = "group:Resource">
-   </FileRef>
-   <FileRef
-      location = "group:Source">
-   </FileRef>
+   <Group
+      location = "group:Resource"
+      name = "Resource">
+      <FileRef
+         location = "group:setup.zsh">
+      </FileRef>
+      <FileRef
+         location = "group:readme.zsh">
+      </FileRef>
+      <FileRef
+         location = "group:Format.md">
+      </FileRef>
+      <FileRef
+         location = "group:TableOfContents.md">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:Source"
+      name = "Source">
+      <Group
+         location = "group:Day4"
+         name = "Day4">
+         <FileRef
+            location = "group:Day4.playground">
+         </FileRef>
+         <FileRef
+            location = "group:README.md">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Day3"
+         name = "Day3">
+         <FileRef
+            location = "group:README.md">
+         </FileRef>
+         <FileRef
+            location = "group:Day3.playground">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Day2"
+         name = "Day2">
+         <FileRef
+            location = "group:Day2.playground">
+         </FileRef>
+         <FileRef
+            location = "group:README.md">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Day5"
+         name = "Day5">
+         <FileRef
+            location = "group:Day5.playground">
+         </FileRef>
+         <FileRef
+            location = "group:README.md">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Day7"
+         name = "Day7">
+         <FileRef
+            location = "group:README.md">
+         </FileRef>
+         <FileRef
+            location = "group:Day7.playground">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Day6"
+         name = "Day6">
+         <FileRef
+            location = "group:README.md">
+         </FileRef>
+         <FileRef
+            location = "group:Day6.playground">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Day1"
+         name = "Day1">
+         <FileRef
+            location = "group:README.md">
+         </FileRef>
+         <FileRef
+            location = "group:Day1.playground">
+         </FileRef>
+      </Group>
+   </Group>
 </Workspace>
