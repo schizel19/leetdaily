@@ -4,26 +4,10 @@
    <FileRef
       location = "group:README.md">
    </FileRef>
-   <Group
-      location = "group:Source"
-      name = "Source">
-      <FileRef
-         location = "group:Day2">
-      </FileRef>
-      <FileRef
-         location = "group:Day3">
-      </FileRef>
-      <FileRef
-         location = "group:Day4">
-      </FileRef>
-      <FileRef
-         location = "group:Day5">
-      </FileRef>
-      <FileRef
-         location = "group:Day6">
-      </FileRef>
-      <FileRef
-         location = "group:Day1">
-      </FileRef>
-   </Group>
+   <FileRef
+      location = "group:Resource">
+   </FileRef>
+   <FileRef
+      location = "group:Source">
+   </FileRef>
 </Workspace>
