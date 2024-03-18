@@ -56,7 +56,9 @@ Output: -1
 Explanation: 4 is less than twice the value of 3, so we return -1.
 ```
 
-## 3. You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
+## 3. Plus One
+
+You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
 
 Increment the large integer by one and return the resulting array of digits.
 
@@ -84,7 +86,9 @@ Incrementing by one gives 9 + 1 = 10.
 Thus, the result should be [1,0].
 ```
 
-## 4. Given an m x n matrix mat, return an array of all the elements of the array in a diagonal order.
+## 4. Diagonal Matrix
+
+Given an m x n matrix mat, return an array of all the elements of the array in a diagonal order.
 
 ```
 Input: mat = [[1,2,3],[4,5,6],[7,8,9]]
@@ -96,7 +100,9 @@ Input: mat = [[1,2],[3,4]]
 Output: [1,2,3,4]
 ```
 
-## 5. Given an m x n matrix, return all elements of the matrix in spiral order.
+## 5. Spiral Matrix
+
+Given an m x n matrix, return all elements of the matrix in spiral order.
 
 ```
 Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
@@ -108,7 +114,9 @@ Input: matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
 Output: [1,2,3,4,8,12,11,10,9,5,6,7]
 ```
 
-## 6. Given an integer numRows, return the first numRows of Pascal's triangle.
+## 6. Pascal's Triangle
+
+Given an integer numRows, return the first numRows of Pascal's triangle.
 
 In Pascal's triangle, each number is the sum of the two numbers directly above it as shown:
 
