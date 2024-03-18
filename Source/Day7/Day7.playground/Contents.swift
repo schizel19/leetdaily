@@ -42,9 +42,36 @@ class Solution {
         
         return result
     }
+    
+    // no conversion
+    static func strStr(_ haystack: String, _ needle: String) -> Int {
+        if needle.count > haystack.count { return -1 }
+        var needleIndex = 0
+        let hayStart = haystack.startIndex
+        let needleStart = needle.startIndex
+        
+        for foundIndex in 0..<(haystack.count - needle.count) {
+            for i in 0..<needle.count {
+                let valA = haystack[haystack.index(hayStart, offsetBy: foundIndex + i)]
+                let valB = needle[needle.index(needleStart, offsetBy: i)]
+                
+                if valA != valB {
+                    break
+                }
+                
+                if i == needle.count - 1 {
+                    return foundIndex
+                }
+            }
+        }
+        
+        return -1
+    }
 }
 
-
-print(Solution.addBinary("11", "1"))
-print(Solution.addBinary("1010", "1011"))
-print(Solution.addBinary("1", "111"))
+//print(Solution.addBinary("11", "1"))
+//print(Solution.addBinary("1010", "1011"))
+//print(Solution.addBinary("1", "111"))
+print(Solution.strStr("sadbutsad", "sad"))
+print(Solution.strStr("leetcode", "leeto"))
+print(Solution.strStr("mississippi", "ssip"))
