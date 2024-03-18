@@ -113,6 +113,12 @@ class Solution {
             right -= 1
         }
     }
+    
+    // with sort
+    static func arrayPairSum(_ nums: [Int]) -> Int {
+        let nums = nums.sorted()
+        return stride(from: 0, to: nums.count - 1, by: 2).reduce(0) { $0 + nums[$1] }
+    }
 }
 
 print(Solution.addBinary("11", "1"))
@@ -124,9 +130,13 @@ print(Solution.strStr("mississippi", "ssip"))
 print(Solution.longestCommonPrefix(["flower","flow","flight"]))
 print(Solution.longestCommonPrefix(["dog","racecar","car"]))
 print(Solution.longestCommonPrefix(["ab","a"]))
+
 var string: [Character] = ["h","e","l","l","o"]
 Solution.reverseString(&string)
 print(string)
 var string2: [Character] = ["H","a","n","n","a","h"]
 Solution.reverseString(&string2)
 print(string2)
+
+print(Solution.arrayPairSum([1,4,3,2]))
+print(Solution.arrayPairSum([6,2,6,5,1,2]))
