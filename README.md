@@ -2,6 +2,13 @@
 This repository is for daily leet practice
 
 ## Table of Content
+- [Day 7 - Array and String: Strings and Two Pointer Technique (pt. 2)](./Source%2FDay7%2FREADME.md#day-7---array-and-string-string-pt-2)
+  * [1. Add Binary](./Source%2FDay7%2FREADME.md#1-add-binary)
+  * [2. Implement strStr()](./Source%2FDay7%2FREADME.md#2-implement-strstr)
+  * [3. Longest Common Prefix](./Source%2FDay7%2FREADME.md#3-longest-common-prefix)
+  * [4. Reverse String](./Source%2FDay7%2FREADME.md#4-reverse-string)
+  * [5. Array Partition I](./Source%2FDay7%2FREADME.md#5-array-partition-i)
+  * [6. Two Sum II - Input array is sorted](./Source%2FDay7%2FREADME.md#6-two-sum-ii---input-array-is-sorted)
 - [Day 6 - Array and String: Introduction (pt. 1)](./Source%2FDay6%2FREADME.md#day-6---array-and-string-introduction-pt-1)
   * [1. Find Pivot Index](./Source%2FDay6%2FREADME.md#1-find-pivot-index)
   * [2. Largest Number At Least Twice of Others](./Source%2FDay6%2FREADME.md#2-largest-number-at-least-twice-of-others)
