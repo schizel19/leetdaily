@@ -119,6 +119,24 @@ class Solution {
         let nums = nums.sorted()
         return stride(from: 0, to: nums.count - 1, by: 2).reduce(0) { $0 + nums[$1] }
     }
+    
+    static func twoSum(_ numbers: [Int], _ target: Int) -> [Int] {
+        if numbers.count == 2 { return [1, 2] }
+        var left = 0
+        var right = numbers.count - 1
+        
+        while left < right {
+            let sum = numbers[left] + numbers[right]
+            if sum == target {
+                return [left + 1, right + 1]
+            } else if sum < target {
+                left += 1
+            } else {
+                right -= 1
+            }
+        }
+        return []
+    }
 }
 
 print(Solution.addBinary("11", "1"))
@@ -140,3 +158,9 @@ print(string2)
 
 print(Solution.arrayPairSum([1,4,3,2]))
 print(Solution.arrayPairSum([6,2,6,5,1,2]))
+
+print(Solution.twoSum([2,7,11,15], 9))
+print(Solution.twoSum([2,3,4], 6))
+print(Solution.twoSum([-1, 0], -1))
+print(Solution.twoSum([-2, -1, 1], -1))
+print(Solution.twoSum([-3,3,4,90], 0))
