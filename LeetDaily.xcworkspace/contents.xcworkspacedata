@@ -7,65 +7,23 @@
    <Group
       location = "group:Source"
       name = "Source">
-      <Group
-         location = "group:/Users/patrickdomingo/Desktop/leetdaily/Source/Day6"
-         name = "Day6">
-         <FileRef
-            location = "group:README.md">
-         </FileRef>
-         <FileRef
-            location = "group:Day6.playground">
-         </FileRef>
-      </Group>
-      <Group
-         location = "group:Day1"
-         name = "Day1">
-         <FileRef
-            location = "group:README.md">
-         </FileRef>
-         <FileRef
-            location = "group:Day1.playground">
-         </FileRef>
-      </Group>
-      <Group
-         location = "group:Day2"
-         name = "Day2">
-         <FileRef
-            location = "group:README.md">
-         </FileRef>
-         <FileRef
-            location = "group:Day2.playground">
-         </FileRef>
-      </Group>
-      <Group
-         location = "group:/Users/patrickdomingo/Desktop/leetdaily/Source/Day4"
-         name = "Day4">
-         <FileRef
-            location = "group:Day4.playground">
-         </FileRef>
-         <FileRef
-            location = "group:README.md">
-         </FileRef>
-      </Group>
-      <Group
-         location = "container:"
-         name = "Day3">
-         <FileRef
-            location = "group:Source/Day3/Day3.playground">
-         </FileRef>
-         <FileRef
-            location = "group:Source/Day3/README.md">
-         </FileRef>
-      </Group>
-      <Group
-         location = "group:Day5"
-         name = "Day5">
-         <FileRef
-            location = "group:README.md">
-         </FileRef>
-         <FileRef
-            location = "group:Day5.playground">
-         </FileRef>
-      </Group>
+      <FileRef
+         location = "group:Day2">
+      </FileRef>
+      <FileRef
+         location = "group:Day3">
+      </FileRef>
+      <FileRef
+         location = "group:Day4">
+      </FileRef>
+      <FileRef
+         location = "group:Day5">
+      </FileRef>
+      <FileRef
+         location = "group:Day6">
+      </FileRef>
+      <FileRef
+         location = "group:Day1">
+      </FileRef>
    </Group>
 </Workspace>
