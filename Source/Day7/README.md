@@ -1,4 +1,4 @@
-#  [Day 7 - Array and String: String (pt. 2)](https://leetcode.com/explore/learn/card/array-and-string/203/introduction-to-string/)
+#  [Day 7 - Array and String: Strings and Two Pointer Technique (pt. 2)](https://leetcode.com/explore/learn/card/array-and-string/203/introduction-to-string/)
 
 ## 1. Add Binary
 
