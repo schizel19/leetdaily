@@ -104,6 +104,15 @@ class Solution {
         return prefix
     }
     
+    static func reverseString(_ s: inout [Character]) {
+        var left = 0
+        var right = s.count - 1
+        while left < right {
+            s.swapAt(left, right)
+            left += 1
+            right -= 1
+        }
+    }
 }
 
 print(Solution.addBinary("11", "1"))
@@ -115,3 +124,9 @@ print(Solution.strStr("mississippi", "ssip"))
 print(Solution.longestCommonPrefix(["flower","flow","flight"]))
 print(Solution.longestCommonPrefix(["dog","racecar","car"]))
 print(Solution.longestCommonPrefix(["ab","a"]))
+var string: [Character] = ["h","e","l","l","o"]
+Solution.reverseString(&string)
+print(string)
+var string2: [Character] = ["H","a","n","n","a","h"]
+Solution.reverseString(&string2)
+print(string2)
