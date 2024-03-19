@@ -43,6 +43,16 @@ class Solution {
             right -= 1
         }
     }
+    
+    static func getRow(_ rowIndex: Int) -> [Int] {
+        if rowIndex == 0 { return [1] }
+        var res = [Int](repeating: 1, count: rowIndex + 1)
+        for i in 1...rowIndex {
+            res[i] = res[i-1] * (rowIndex-i + 1)/i
+            print(res)
+        }
+        return res
+    }
 }
 
 print(Solution.minSubArrayLen(7, [2,3,1,2,4,3]))
@@ -54,6 +64,10 @@ var array = [1,2,3,4,5,6,7]
 Solution.rotate(&array, 3)
 print(array)
 
-var array2 = [-1,-100,3,99] // [3, 99, -1, 100]
+var array2 = [-1,-100,3,99]
 Solution.rotate(&array2, 2)
 print(array2)
+
+print(Solution.getRow(0))
+print(Solution.getRow(3))
+print(Solution.getRow(1))
