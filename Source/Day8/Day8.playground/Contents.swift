@@ -114,6 +114,31 @@ class Solution {
         
         return String(array)
     }
+    
+    static func reverseWords3(_ s: String) -> String {
+        var array = Array(s)
+        var left = 0
+        var right = 0
+        
+        while left < s.count {
+            while right < array.count, array[right] != " " {
+                right += 1
+            }
+            
+            var pseudoRight = right - 1
+
+            while left < pseudoRight {
+                array.swapAt(left, pseudoRight)
+                left += 1
+                pseudoRight -= 1
+            }
+            
+            right += 1
+            left = right
+        }
+        
+        return String(array)
+    }
 }
 
 //print(Solution.minSubArrayLen(7, [2,3,1,2,4,3]))
@@ -137,6 +162,10 @@ class Solution {
 //print(Solution.reverseWords("  hello world  "))
 //print(Solution.reverseWords("a good   example"))
 
-print(Solution.reverseWords2("the sky is blue"))
-print(Solution.reverseWords2("  hello world  "))
-print(Solution.reverseWords2("a good   example"))
+//print(Solution.reverseWords2("the sky is blue"))
+//print(Solution.reverseWords2("  hello world  "))
+//print(Solution.reverseWords2("a good   example"))
+
+print(Solution.reverseWords3("Let's take LeetCode contest"))
+print(Solution.reverseWords3("Mr Ding"))
+

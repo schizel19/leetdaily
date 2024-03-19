@@ -89,3 +89,18 @@ Input: s = "a good   example"
 Output: "example good a"
 Explanation: You need to reduce multiple spaces between two words to a single space in the reversed string.
 ```
+
+
+## 5. Reverse Words in a String III
+
+Given a string s, reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.
+
+```
+Input: s = "Let's take LeetCode contest"
+Output: "s'teL ekat edoCteeL tsetnoc"
+```
+
+```
+Input: s = "Mr Ding"
+Output: "rM gniD"
+```
