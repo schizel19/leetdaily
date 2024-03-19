@@ -2,6 +2,12 @@
 This repository is for daily leet practice
 
 ## Table of Content
+- [Day 8 - Array and String: Challenge (pt. 3)](./Source%2FDay8%2FREADME.md#day-8---array-and-string-challenge-pt-3)
+  * [1. Minimum Size Subarray Sum](./Source%2FDay8%2FREADME.md#1-minimum-size-subarray-sum)
+  * [2. Rotate Array](./Source%2FDay8%2FREADME.md#2-rotate-array)
+  * [3. Pascal's Triangle II](./Source%2FDay8%2FREADME.md#3-pascals-triangle-ii)
+  * [4. Reverse Words in a String](./Source%2FDay8%2FREADME.md#4-reverse-words-in-a-string)
+  * [5. Reverse Words in a String III](./Source%2FDay8%2FREADME.md#5-reverse-words-in-a-string-iii)
 - [Day 7 - Array and String: Strings and Two Pointer Technique (pt. 2)](./Source%2FDay7%2FREADME.md#day-7---array-and-string-string-pt-2)
   * [1. Add Binary](./Source%2FDay7%2FREADME.md#1-add-binary)
   * [2. Implement strStr()](./Source%2FDay7%2FREADME.md#2-implement-strstr)
