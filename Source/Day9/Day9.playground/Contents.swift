@@ -103,6 +103,26 @@ class Solution {
         
         return p1
     }
+    
+    static func removeNthFromEnd(_ head: ListNode?, _ n: Int) -> ListNode? {
+        var node = ListNode(0)
+        node.next = head
+        
+        var fast: ListNode? = node
+        var slow: ListNode? = node
+
+        for _ in 0...n {
+            fast = fast?.next
+        }
+        
+        while fast != nil {
+            fast = fast?.next
+            slow = slow?.next
+        }
+        
+        slow?.next = slow?.next?.next
+        return node.next
+    }
 }
 
 let node1 = ListNode(3)
@@ -146,7 +166,7 @@ print(Solution.getIntersectionNode(node1, node5)?.val)
 let nodeA = ListNode(4)
 let nodeB = ListNode(1)
 let nodeC = ListNode(8)
-let nodeD = ListNode(4)
+let nodeD = ListNode(6)
 let nodeE = ListNode(5)
 
 let nodeF = ListNode(5)
@@ -164,3 +184,11 @@ nodeH.next = nodeC
 
 print(Solution.getIntersectionNode(nodeA, nodeF) === nodeC)
 print(Solution.getIntersectionNode(nodeA, nodeF)?.val)
+print("debug ====")
+
+// 4 1 8 6 5 -> 4 1 6 5
+var head = Solution.removeNthFromEnd(nodeA, 3)
+while head != nil {
+    print(head?.val)
+    head = head?.next
+}

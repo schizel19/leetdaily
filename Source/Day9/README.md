@@ -125,4 +125,13 @@ Explanation: From the head of A, it reads as [2,6,4]. From the head of B, it rea
 Explanation: The two lists do not intersect, so return null.
 ```
 
+## 4. Given the head of a linked list, remove the nth node from the end of the list and return its head.
+
+![Example:](https://assets.leetcode.com/uploads/2020/10/03/remove_ex1.jpg)
+
+```
+Input: head = [1,2,3,4,5], n = 2
+Output: [1,2,3,5]
+```
+
 
