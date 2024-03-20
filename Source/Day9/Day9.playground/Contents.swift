@@ -47,6 +47,62 @@ class Solution {
         
         return nil
     }
+    
+    // using counting
+    static func getIntersectionNode(_ headA: ListNode?, _ headB: ListNode?) -> ListNode? {
+        var headACount = 0
+        var headBCount = 0
+        var head1 = headA
+        var head2 = headB
+        
+        if headA === headB { return headA }
+        
+        while head1?.next != nil || head2?.next != nil {
+            if head1?.next != nil {
+                headACount += 1
+                head1 = head1?.next
+            }
+            
+            if head2?.next != nil {
+                headBCount += 1
+                head2 = head2?.next
+            }
+        }
+        
+        guard head1 === head2 else { return nil }
+        
+        head1 = headA
+        head2 = headB
+        if headACount > headBCount {
+            for _ in 0..<(headACount - headBCount) {
+                head1 = head1?.next
+            }
+        } else {
+            for _ in 0..<(headBCount - headACount) {
+                head2 = head2?.next
+            }
+        }
+        
+        while (head1?.next != nil || head2?.next != nil), head1 !== head2 {
+            head1 = head1?.next
+            head2 = head2?.next
+        }
+        
+        return head1
+    }
+    
+    // elegant
+    static func getIntersectionNode2(_ headA: ListNode?, _ headB: ListNode?) -> ListNode? {
+        var p1 = headA
+        var p2 = headB
+        
+        while p1 !== p2 {
+            p1 = (p1 == nil) ? headB : p1?.next
+            p2 = (p2 == nil) ? headA : p2?.next
+        }
+        
+        return p1
+    }
 }
 
 let node1 = ListNode(3)
@@ -54,23 +110,57 @@ let node2 = ListNode(2)
 let node3 = ListNode(0)
 let node4 = ListNode(4)
 
-let node5 = ListNode(6)
-
 node1.next = node2
 node2.next = node3
 node3.next = node4
 
 node4.next = node2
 
-//node4.next = node5
-//node5.next = node1
-
 print(Solution.hasCycle(node1))
 print(Solution.detectCycle(node1)?.val)
-
 
 node4.next = nil
-//node5.next = nil
 
 print(Solution.hasCycle(node1))
 print(Solution.detectCycle(node1)?.val)
+
+node1.next = node2
+node2.next = node3
+node3.next = node4
+
+let node5 = ListNode(6)
+let node6 = ListNode(7)
+let node7 = ListNode(8)
+
+node5.next = node6
+node6.next = node2
+
+print(Solution.getIntersectionNode(node1, node5) === node2)
+print(Solution.getIntersectionNode(node1, node5)?.val)
+
+node6.next = node7
+
+print(Solution.getIntersectionNode(node1, node5)?.val)
+
+
+let nodeA = ListNode(4)
+let nodeB = ListNode(1)
+let nodeC = ListNode(8)
+let nodeD = ListNode(4)
+let nodeE = ListNode(5)
+
+let nodeF = ListNode(5)
+let nodeG = ListNode(6)
+let nodeH = ListNode(1)
+
+nodeA.next = nodeB
+nodeB.next = nodeC
+nodeC.next = nodeD
+nodeD.next = nodeE
+
+nodeF.next = nodeG
+nodeG.next = nodeH
+nodeH.next = nodeC
+
+print(Solution.getIntersectionNode(nodeA, nodeF) === nodeC)
+print(Solution.getIntersectionNode(nodeA, nodeF)?.val)
