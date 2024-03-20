@@ -2,6 +2,11 @@
 This repository is for daily leet practice
 
 ## Table of Content
+- [Day 9 - Linked List: Introduction (pt.1)](./Source%2FDay9%2FREADME.md#day-9---linked-list-introduction-pt1)
+  * [1. Linked List Cycle](./Source%2FDay9%2FREADME.md#1-linked-list-cycle)
+  * [2. Linked List Cycle 2](./Source%2FDay9%2FREADME.md#2-linked-list-cycle-2)
+  * [3. Intersection of Two Linked Lists](./Source%2FDay9%2FREADME.md#3-intersection-of-two-linked-lists)
+  * [4. Remove Nth Node From End of List](./Source%2FDay9%2FREADME.md#4-remove-nth-node-from-end-of-list)
 - [Day 8 - Array and String: Challenge (pt. 3)](./Source%2FDay8%2FREADME.md#day-8---array-and-string-challenge-pt-3)
   * [1. Minimum Size Subarray Sum](./Source%2FDay8%2FREADME.md#1-minimum-size-subarray-sum)
   * [2. Rotate Array](./Source%2FDay8%2FREADME.md#2-rotate-array)
@@ -53,3 +58,4 @@ This repository is for daily leet practice
 
 ### Resources
 - [LeetCode](https://leetcode.com/explore/learn)
+    * [Explore Card](https://leetcode.com/explore/learn/card/the-leetcode-beginners-guide/679/sql-syntax/4358/)

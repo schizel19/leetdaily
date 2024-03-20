@@ -16,13 +16,20 @@
       <FileRef
          location = "group:Format.md">
       </FileRef>
-      <FileRef
-         location = "group:TableOfContents.md">
-      </FileRef>
    </Group>
    <Group
       location = "group:Source"
       name = "Source">
+      <Group
+         location = "group:Day9"
+         name = "Day9">
+         <FileRef
+            location = "group:README.md">
+         </FileRef>
+         <FileRef
+            location = "group:Day9.playground">
+         </FileRef>
+      </Group>
       <Group
          location = "group:Day8"
          name = "Day8">
