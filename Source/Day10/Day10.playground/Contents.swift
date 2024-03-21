@@ -1,9 +1,9 @@
 class ListNode {
      public var val: Int
      public var next: ListNode?
-     public init(_ val: Int) {
+    public init(_ val: Int, _ next: ListNode? = nil) {
          self.val = val
-         self.next = nil
+         self.next = next
      }
 }
 
@@ -52,6 +52,24 @@ class Solution {
         }
         return newHead!.next
     }
+    
+    static func oddEvenList(_ head: ListNode?) -> ListNode? {
+        let holder = ListNode(0, head)
+        
+        var odd = head
+        let evenHead = head?.next
+        var even = head?.next
+        
+        while even?.next?.next != nil {
+            odd?.next = odd?.next?.next
+            odd = odd?.next
+            even?.next = even?.next?.next
+            even = even?.next
+        }
+        
+        odd?.next = evenHead
+        return holder.next
+    }
 }
 
 let node1 = ListNode(1)
@@ -76,3 +94,7 @@ list(head: Solution.reverseList(node6)) // 7, 6
 list(head: Solution.reverseList(nil)) // nil
 
 list(head: Solution.removeElements(node5, 1)) // 5, 4, 3, 2
+
+node2.next = node1
+
+list(head: Solution.oddEvenList(node5)) // 5, 3, 4, 2, 1
