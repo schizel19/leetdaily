@@ -2,6 +2,11 @@
 This repository is for daily leet practice
 
 ## Table of Content
+- [Day 10 - Linked List: Classic Problems (pt. 2)](./Source%2FDay10%2FREADME.md#day-10---linked-list-classic-problems-pt-2)
+  * [1. Reverse Linked List](./Source%2FDay10%2FREADME.md#1-reverse-linked-list)
+  * [2. Remove Linked List Elements](./Source%2FDay10%2FREADME.md#2--remove-linked-list-elements)
+  * [3. Odd Even Linked List](./Source%2FDay10%2FREADME.md#3-odd-even-linked-list)
+  * [4. Palindrome Linked List](./Source%2FDay10%2FREADME.md#4-palindrome-linked-list)
 - [Day 9 - Linked List: Introduction (pt.1)](./Source%2FDay9%2FREADME.md#day-9---linked-list-introduction-pt1)
   * [1. Linked List Cycle](./Source%2FDay9%2FREADME.md#1-linked-list-cycle)
   * [2. Linked List Cycle 2](./Source%2FDay9%2FREADME.md#2-linked-list-cycle-2)
