@@ -7,6 +7,21 @@ class ListNode {
      }
 }
 
+func list(head: ListNode?) {
+    var vals = [String]()
+    var head = head
+    while head != nil {
+        vals.append("\(head?.val)")
+        head = head?.next
+        
+        if vals.count == 6 {
+            print(vals)
+            break
+        }
+    }
+    print(vals.joined(separator: ", "))
+}
+
 class Solution {
     static func reverseList(_ head: ListNode?) -> ListNode? {
         var head = head
@@ -22,19 +37,20 @@ class Solution {
         return newHead
     }
     
-    static func list(head: ListNode?) {
-        var vals = [String]()
+    static func removeElements(_ head: ListNode?, _ val: Int) -> ListNode? {
+        var newHead: ListNode? = ListNode(0)
+        newHead!.next = head
+        var slowHead = newHead
         var head = head
         while head != nil {
-            vals.append("\(head?.val)")
-            head = head?.next
-            
-            if vals.count == 6 {
-                print(vals)
-                break
+            if head!.val == val {
+                slowHead?.next = head?.next
+            } else {
+                slowHead = head
             }
+            head = head?.next
         }
-        print(vals.joined(separator: ", "))
+        return newHead!.next
     }
 }
 
@@ -51,10 +67,12 @@ node2.next = node3
 node3.next = node4
 node4.next = node5
 
-Solution.list(head: Solution.reverseList(node1)) // 5, 4, 3, 2, 1
+list(head: Solution.reverseList(node1)) // 5, 4, 3, 2, 1
 
 node6.next = node7
 
-Solution.list(head: Solution.reverseList(node6)) // 7, 6
+list(head: Solution.reverseList(node6)) // 7, 6
 
-Solution.list(head: Solution.reverseList(nil)) // nil
+list(head: Solution.reverseList(nil)) // nil
+
+list(head: Solution.removeElements(node5, 1)) // 5, 4, 3, 2
