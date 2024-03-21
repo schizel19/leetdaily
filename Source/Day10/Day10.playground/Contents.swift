@@ -70,6 +70,70 @@ class Solution {
         odd?.next = evenHead
         return holder.next
     }
+    
+    static func isPalindrome(_ head: ListNode?) -> Bool {
+        if head?.next == nil { return true }
+        var fast = head
+        var slow = head
+        
+        // find the middle
+        while fast != nil, fast?.next != nil {
+            fast = fast?.next?.next
+            slow = slow?.next
+        }
+        
+        // reverse
+        var prev: ListNode?
+        while slow != nil {
+            let next = slow?.next
+            slow?.next = prev
+            prev = slow
+            slow = next
+        }
+        
+        var left = head
+        var right = prev
+        
+        while right != nil {
+            if left?.val != right?.val { return false }
+            right = right?.next
+            left = left?.next
+        }
+        
+        return true
+    }
+    
+    static func isPalindrome(_ head: ListNode?) -> Bool {
+        if head?.next == nil { return true }
+        var fast = head
+        var slow = head
+        
+        // find the middle
+        while fast != nil, fast?.next != nil {
+            fast = fast?.next?.next
+            slow = slow?.next
+        }
+        
+        // reverse
+        var prev: ListNode?
+        while slow != nil {
+            let next = slow?.next
+            slow?.next = prev
+            prev = slow
+            slow = next
+        }
+        
+        var left = head
+        var right = prev
+        
+        while right != nil {
+            if left?.val != right?.val { return false }
+            right = right?.next
+            left = left?.next
+        }
+        
+        return true
+    }
 }
 
 let node1 = ListNode(1)
@@ -98,3 +162,22 @@ list(head: Solution.removeElements(node5, 1)) // 5, 4, 3, 2
 node2.next = node1
 
 list(head: Solution.oddEvenList(node5)) // 5, 3, 4, 2, 1
+
+
+let nodeA = ListNode(1)
+let nodeB = ListNode(2)
+let nodeC = ListNode(2)
+let nodeD = ListNode(1)
+
+nodeA.next = nodeB
+nodeB.next = nodeC
+nodeC.next = nodeD
+
+
+let nodeE = ListNode(3)
+let nodeF = ListNode(4)
+
+nodeE.next = nodeF
+
+print(Solution.isPalindrome(nodeA))
+print(Solution.isPalindrome(nodeE))

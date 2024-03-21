@@ -65,3 +65,22 @@ Output: [1,3,5,2,4]
 Input: head = [2,1,3,5,6,4,7]
 Output: [2,3,6,7,1,5,4]
 ```
+
+## 4. Palindrome Linked List
+
+Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
+
+![Example 1:](https://assets.leetcode.com/uploads/2021/03/03/pal1linked-list.jpg)
+
+```
+Input: head = [1,2,2,1]
+Output: true
+```
+
+![Example 2:](https://assets.leetcode.com/uploads/2021/03/03/pal1linked-list.jpg)
+
+```
+Input: head = [1,2]
+Output: false
+```
+
