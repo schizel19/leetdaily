@@ -27,6 +27,33 @@ func list(head: ListNode?) {
     print(vals.isEmpty ? "empty" : vals.joined(separator: ", "))
 }
 
+public class Node {
+    public var val: Int
+    public var next: Node?
+    public var random: Node?
+    public init(_ val: Int) {
+        self.val = val
+        self.next = nil
+        self.random = nil
+    }
+}
+
+
+func list2(head: Node?) {
+    var vals = [String]()
+    var head = head
+    while head != nil {
+        vals.append("\(head?.val)")
+        head = head?.next
+        
+        if vals.count == 1000 {
+            print(vals)
+            break
+        }
+    }
+    print(vals.isEmpty ? "empty" : vals.joined(separator: ", "))
+}
+
 let node1 = ListNode(1)
 let node2 = ListNode(2)
 let node3 = ListNode(3)
@@ -130,7 +157,78 @@ class Solution {
         parent.next?.prev = nil
         return parent.next
     }
+    
+    static func copyRandomList(_ head: Node?) -> Node? {
+        if head == nil { return nil }
+        var start = Node(0)
+        var oldHead = head
+        
+        while oldHead != nil {
+            let node = Node(oldHead!.val)
+            node.next = oldHead?.next
+            oldHead?.next = node
+            oldHead = node.next
+        }
+        
+        oldHead = head
+        while oldHead != nil {
+            oldHead?.next?.random = oldHead?.random?.next
+            oldHead = oldHead?.next?.next
+        }
+        
+        oldHead = head
+        var newHead: Node? = head?.next
+        var newNode = oldHead?.next
+        
+        while oldHead != nil {
+            oldHead?.next = newNode?.next
+            oldHead = oldHead?.next
+            newNode?.next = oldHead?.next
+            newNode = newNode?.next
+        }
+        
+        return newHead
+    }
+    
+    static func rotateRight(_ head: ListNode?, _ k: Int) -> ListNode? {
+        if head == nil || k == 0 { return head }
+        var node = head
+        var count = 1
+        
+        while node?.next != nil {
+            node = node?.next
+            count += 1
+        }
+        
+        node?.next = head
+        
+        for _ in 0..<count - (k % count) {
+            node = node?.next
+        }
+        
+        var head = node?.next
+        node?.next = nil
+        return head
+    }
 }
+
+node1.next = node2
+node2.next = node3
+node3.next = node4
+node4.next = node5
+node5.next = nil
+
+// [1, 2, 3, 4, 5] -> [4, 5, 1, 2, 3]
+list(head: Solution.rotateRight(node1, 2))
+list(head: Solution.rotateRight(nil, 1))
+////
+node6.next = nil
+list(head: Solution.rotateRight(node6, 0))
+list(head: Solution.rotateRight(node6, 1))
+
+node1.next = node2
+node2.next = nil
+list(head: Solution.rotateRight(node1, 2))
 
 // [1, 2, 4, 5] + [3, 6] = [1, 2, 3, 4, 5, 6]
 node1.next = node2
@@ -179,67 +277,6 @@ A B C D L
 
 list(head: Solution.flatten(nodeA))
 
-public class Node {
-    public var val: Int
-    public var next: Node?
-    public var random: Node?
-    public init(_ val: Int) {
-        self.val = val
-        self.next = nil
-        self.random = nil
-    }
-}
-
-class Solution2 {
-    static func copyRandomList(_ head: Node?) -> Node? {
-        if head == nil { return nil }
-        var start = Node(0)
-        var oldHead = head
-        
-        while oldHead != nil {
-            let node = Node(oldHead!.val)
-            node.next = oldHead?.next
-            oldHead?.next = node
-            oldHead = node.next
-        }
-        
-        oldHead = head
-        while oldHead != nil {
-            oldHead?.next?.random = oldHead?.random?.next
-            oldHead = oldHead?.next?.next
-        }
-        
-        oldHead = head
-        var newHead: Node? = head?.next
-        var newNode = oldHead?.next
-        
-        while oldHead != nil {
-            oldHead?.next = newNode?.next
-            oldHead = oldHead?.next
-            newNode?.next = oldHead?.next
-            newNode = newNode?.next
-        }
-        
-        return newHead
-    }
-}
-
-
-func list2(head: Node?) {
-    var vals = [String]()
-    var head = head
-    while head != nil {
-        vals.append("\(head?.val)")
-        head = head?.next
-        
-        if vals.count == 1000 {
-            print(vals)
-            break
-        }
-    }
-    print(vals.isEmpty ? "empty" : vals.joined(separator: ", "))
-}
-
 let aNode7 = Node(7)
 let aNode13 = Node(13)
 let aNode11 = Node(11)
@@ -256,5 +293,5 @@ aNode11.random = aNode10
 aNode10.random = aNode13
 aNode1.random = aNode7
 
-list2(head: Solution2.copyRandomList(aNode7))
+list2(head: Solution.copyRandomList(aNode7))
 
