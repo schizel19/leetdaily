@@ -74,6 +74,30 @@ class Solution {
         
         return parent.next
     }
+    
+    static func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+        let parent = ListNode(0)
+        var carry = 0
+        var head = parent
+        var l1 = l1
+        var l2 = l2
+        
+        while l1 != nil || l2 != nil {
+            let sum = (l1?.val ?? 0) + (l2?.val ?? 0) + carry
+            let node = ListNode(sum % 10)
+            carry = sum/10
+            l1 = l1?.next
+            l2 = l2?.next
+            head.next = node
+            head = node
+        }
+        
+        if carry == 1 {
+            head.next = ListNode(1)
+        }
+        
+        return parent.next
+    }
 }
 
 // [1, 2, 4, 5] + [3, 6] = [1, 2, 3, 4, 5, 6]
@@ -84,3 +108,17 @@ node4.next = node5
 node3.next = node6
 
 list(head: Solution.mergeTwoLists(node1, node3))
+
+
+// 315
+node5.next = node1
+node1.next = node3
+node3.next = nil
+
+// 724
+node4.next = node2
+node2.next = node7
+node7.next = nil
+
+// 724 + 315 = 1039
+list(head: Solution.addTwoNumbers(node5, node4))
