@@ -40,3 +40,47 @@ let nodeD = ListNode(11)
 let nodeE = ListNode(12)
 let nodeF = ListNode(13)
 
+
+class Solution {
+    static func mergeTwoLists(_ list1: ListNode?, _ list2: ListNode?) -> ListNode? {
+        let parent = ListNode(-1)
+        var head: ListNode? = parent
+        var l1 = list1
+        var l2 = list2
+        
+        while l1 != nil || l2 != nil {
+            var next: ListNode?
+            
+            if let val1 = l1?.val, let val2 = l2?.val {
+                if val1 < val2 {
+                    next = l1
+                    l1 = l1?.next
+                } else {
+                    next = l2
+                    l2 = l2?.next
+                }
+            } else if l1 != nil {
+                next = l1
+                l1 = l1?.next
+            } else {
+                next = l2
+                l2 = l2?.next
+            }
+            
+            
+            head?.next = next
+            head = next
+        }
+        
+        return parent.next
+    }
+}
+
+// [1, 2, 4, 5] + [3, 6] = [1, 2, 3, 4, 5, 6]
+node1.next = node2
+node2.next = node4
+node4.next = node5
+
+node3.next = node6
+
+list(head: Solution.mergeTwoLists(node1, node3))
