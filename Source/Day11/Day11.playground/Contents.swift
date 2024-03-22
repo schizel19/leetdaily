@@ -178,3 +178,83 @@ A B C D L
 */
 
 list(head: Solution.flatten(nodeA))
+
+public class Node {
+    public var val: Int
+    public var next: Node?
+    public var random: Node?
+    public init(_ val: Int) {
+        self.val = val
+        self.next = nil
+        self.random = nil
+    }
+}
+
+class Solution2 {
+    static func copyRandomList(_ head: Node?) -> Node? {
+        if head == nil { return nil }
+        var start = Node(0)
+        var oldHead = head
+        
+        while oldHead != nil {
+            let node = Node(oldHead!.val)
+            node.next = oldHead?.next
+            oldHead?.next = node
+            oldHead = node.next
+        }
+        
+        oldHead = head
+        while oldHead != nil {
+            oldHead?.next?.random = oldHead?.random?.next
+            oldHead = oldHead?.next?.next
+        }
+        
+        oldHead = head
+        var newHead: Node? = head?.next
+        var newNode = oldHead?.next
+        
+        while oldHead != nil {
+            oldHead?.next = newNode?.next
+            oldHead = oldHead?.next
+            newNode?.next = oldHead?.next
+            newNode = newNode?.next
+        }
+        
+        return newHead
+    }
+}
+
+
+func list2(head: Node?) {
+    var vals = [String]()
+    var head = head
+    while head != nil {
+        vals.append("\(head?.val)")
+        head = head?.next
+        
+        if vals.count == 1000 {
+            print(vals)
+            break
+        }
+    }
+    print(vals.isEmpty ? "empty" : vals.joined(separator: ", "))
+}
+
+let aNode7 = Node(7)
+let aNode13 = Node(13)
+let aNode11 = Node(11)
+let aNode10 = Node(10)
+let aNode1 = Node(1)
+
+aNode7.next = aNode13
+aNode13.next = aNode11
+aNode11.next = aNode10
+aNode10.next = aNode1
+
+aNode13.random = aNode7
+aNode11.random = aNode10
+aNode10.random = aNode13
+aNode1.random = aNode7
+
+list2(head: Solution2.copyRandomList(aNode7))
+
