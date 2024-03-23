@@ -81,7 +81,19 @@ class Solution {
     }
     
     static func fib(_ n: Int) -> Int {
-        return fib(n, fibMap: [0: 0, 1: 1])
+        var memo = [0: 0, 1: 1]
+           
+       func fibHelper(_ n: Int) -> Int {
+           if let result = memo[n] {
+               return result
+           }
+           
+           let result = fibHelper(n - 1) + fibHelper(n - 2)
+           memo[n] = result
+           return result
+       }
+       
+       return fibHelper(n)
     }
     
     static func fib(_ n: Int, fibMap: [Int: Int]) -> Int {
@@ -91,6 +103,21 @@ class Solution {
         return fibMap[n]!
     }
     
+    func climbStairs(_ n: Int) -> Int {
+        var memo = [0: 0, 1: 1, 2: 2]
+        
+        func steps(_ n: Int) -> Int {
+            if let result = memo[n] {
+                return result
+            }
+            
+            let result = steps(n - 1) + steps(n - 2)
+            memo[n] = result
+            return result
+        }
+        
+        return steps(n)
+    }
     
 }
 
@@ -141,3 +168,11 @@ print(Solution.fib(4))
 print(Solution.fib(5))
 print(Solution.fib(6))
 print(Solution.fib(7))
+print(Solution.fib(44))
+
+
+print(Solution().climbStairs(4))
+print(Solution().climbStairs(5))
+print(Solution().climbStairs(6))
+print(Solution().climbStairs(44))
+
