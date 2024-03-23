@@ -79,6 +79,19 @@ class Solution {
         
         return curr
     }
+    
+    static func fib(_ n: Int) -> Int {
+        return fib(n, fibMap: [0: 0, 1: 1])
+    }
+    
+    static func fib(_ n: Int, fibMap: [Int: Int]) -> Int {
+        if let num = fibMap[n] { return num }
+        var fibMap = fibMap
+        fibMap[n] = fib(n - 1, fibMap: fibMap) + fib(n - 2, fibMap: fibMap)
+        return fibMap[n]!
+    }
+    
+    
 }
 
 node1.next = node2
@@ -120,3 +133,11 @@ print(Solution.searchBST(treeNode4, 3) === treeNode3)
 print(Solution.getRow(0)) // 0
 print(Solution.getRow(1)) // 1
 print(Solution.getRow(3)) // 1, 3, 3, 1
+
+print(Solution.fib(0))
+print(Solution.fib(2))
+print(Solution.fib(3))
+print(Solution.fib(4))
+print(Solution.fib(5))
+print(Solution.fib(6))
+print(Solution.fib(7))
