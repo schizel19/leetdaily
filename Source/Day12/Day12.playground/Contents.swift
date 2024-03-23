@@ -36,6 +36,15 @@ class Solution {
         head?.next = swapPairs(next)
         return sentry.next
     }
+    
+    static func reverseList(_ head: ListNode?) -> ListNode? {
+        if head == nil || head?.next == nil { return head }
+        let next = head?.next
+        let newNode = reverseList(next)
+        next?.next = head
+        head?.next = nil
+        return newNode
+    }
 }
 
 node1.next = node2
@@ -49,4 +58,10 @@ node1.next = nil
 
 list(head: Solution.swapPairs(node1))
 
+node1.next = node2
+node2.next = node3
+node3.next = node4
+node4.next = nil
 
+// 4, 3, 2, 1
+list(head: Solution.reverseList(node1))
