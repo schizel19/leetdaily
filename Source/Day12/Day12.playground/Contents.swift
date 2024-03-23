@@ -64,6 +64,21 @@ class Solution {
         if root.val == val { return root }
         return searchBST(root.left, val) ?? searchBST(root.right, val)
     }
+    
+    static func getRow(_ rowIndex: Int) -> [Int] {
+        if rowIndex == 0 { return [1] }
+        
+        var curr = [1]
+        var prev = getRow(rowIndex - 1)
+        
+        for index in 1..<rowIndex {
+            curr.append(prev[index - 1] + prev[index])
+        }
+        
+        curr.append(1)
+        
+        return curr
+    }
 }
 
 node1.next = node2
@@ -101,3 +116,7 @@ print(Solution.searchBST(treeNode4, 2) === treeNode2)
 print(Solution.searchBST(treeNode4, 7) === treeNode7)
 print(Solution.searchBST(treeNode4, 1) === treeNode1)
 print(Solution.searchBST(treeNode4, 3) === treeNode3)
+
+print(Solution.getRow(0)) // 0
+print(Solution.getRow(1)) // 1
+print(Solution.getRow(3)) // 1, 3, 3, 1
