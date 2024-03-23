@@ -7,6 +7,19 @@ public class ListNode {
     public init(_ val: Int, _ next: ListNode?) { self.val = val; self.next = next; }
 }
 
+public class TreeNode {
+  public var val: Int
+  public var left: TreeNode?
+  public var right: TreeNode?
+  public init() { self.val = 0; self.left = nil; self.right = nil; }
+  public init(_ val: Int) { self.val = val; self.left = nil; self.right = nil; }
+  public init(_ val: Int, _ left: TreeNode?, _ right: TreeNode?) {
+      self.val = val
+      self.left = left
+      self.right = right
+  }
+}
+
 func list(head: ListNode?) {
     var vals = [String]()
     var head = head
@@ -45,6 +58,12 @@ class Solution {
         head?.next = nil
         return newNode
     }
+    
+    static func searchBST(_ root: TreeNode?, _ val: Int) -> TreeNode? {
+        guard let root else { return nil }
+        if root.val == val { return root }
+        return searchBST(root.left, val) ?? searchBST(root.right, val)
+    }
 }
 
 node1.next = node2
@@ -65,3 +84,20 @@ node4.next = nil
 
 // 4, 3, 2, 1
 list(head: Solution.reverseList(node1))
+
+
+let treeNode1 = TreeNode(1)
+let treeNode2 = TreeNode(2)
+let treeNode3 = TreeNode(3)
+let treeNode4 = TreeNode(4)
+let treeNode7 = TreeNode(7)
+
+treeNode4.left = treeNode2
+treeNode4.right = treeNode7
+treeNode2.left = treeNode1
+treeNode2.right = treeNode3
+
+print(Solution.searchBST(treeNode4, 2) === treeNode2)
+print(Solution.searchBST(treeNode4, 7) === treeNode7)
+print(Solution.searchBST(treeNode4, 1) === treeNode1)
+print(Solution.searchBST(treeNode4, 3) === treeNode3)
