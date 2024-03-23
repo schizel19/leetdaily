@@ -2,6 +2,13 @@
 This repository is for daily leet practice
 
 ## Table of Contents
+- [Day 12 - Recursion I: Recurence and Memoization (pt.1)](./Source%2FDay12%2FREADME.md#day-12---recursion-i-recurence-and-memoization-pt1)
+  * [1. Swap Nodes in Pairs](./Source%2FDay12%2FREADME.md#1-swap-nodes-in-pairs)
+  * [2. Reverse a Linked List](./Source%2FDay12%2FREADME.md#2-reverse-a-linked-list)
+  * [3. Search in a Binary Search Tree](./Source%2FDay12%2FREADME.md#3-search-in-a-binary-search-tree)
+  * [4. Pascal's Triangle II](./Source%2FDay12%2FREADME.md#4-pascals-triangle-ii)
+  * [5. Fibonacci Number](./Source%2FDay12%2FREADME.md#5-fibonacci-number)
+  * [6. Climbing Stairs](./Source%2FDay12%2FREADME.md#6-climbing-stairs)
 - [Day 11 - Linked List: Challenge (pt. 3)](./Source%2FDay11%2FREADME.md#day-11---linked-list-challenge-pt-3)
   * [1. Merge Two Sorted Lists](./Source%2FDay11%2FREADME.md#1-merge-two-sorted-lists)
   * [2. Add Two Numbers](./Source%2FDay11%2FREADME.md#2-add-two-numbers)
