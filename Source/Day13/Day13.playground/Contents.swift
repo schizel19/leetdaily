@@ -71,6 +71,44 @@ class Solution {
         
         return kthGrammar(n - 1, k)
     }
+    
+    func generateTrees(_ n: Int) -> [TreeNode?] {
+        struct Pair: Hashable {
+            let a: Int, b: Int
+        }
+        
+        var memo = [Pair: [TreeNode?]]()
+        
+        func allPossible(start: Int, end: Int) -> [TreeNode?] {
+            var res = [TreeNode?]()
+            if start > end {
+                res.append(nil)
+                return res
+            }
+            
+            if let m = memo[.init(a: start, b: end)] {
+                return m
+            }
+            
+            for i in start..<end+1 {
+                var leftSubtrees = allPossible(start: start, end: i - 1)
+                var rightSubtrees = allPossible(start: i + 1, end: end)
+                
+                
+                for left in leftSubtrees {
+                    for right in rightSubtrees {
+                        let root = TreeNode(i, left, right)
+                        res.append(root)
+                    }
+                }
+            }
+            
+            memo[.init(a: start, b: end)] = res
+            return res
+        }
+        
+        return allPossible(start: 1, end: n)
+    }
 }
 
 
