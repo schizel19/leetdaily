@@ -14,7 +14,18 @@ Input: root = [3,9,20,null,null,15,7]
 Output: 3
 ```
 
+## 2. Pow(x,n)
 
+Implement pow(x, n), which calculates x raised to the power n (i.e., xn).
 
+```
+Input: x = 2.00000, n = 10
+Output: 1024.00000
+```
+
+```
+Input: x = 2.10000, n = 3
+Output: 9.26100
+```
 
 

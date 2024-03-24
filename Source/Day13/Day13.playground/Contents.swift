@@ -18,6 +18,12 @@ class Solution {
         if root == nil { return 0 }
         return 1 + max(maxDepth(root?.left), maxDepth(root?.right))
     }
+    
+    func myPow(_ x: Double, _ n: Int) -> Double {
+        if n == 0 { return 1 }
+        if n < 0 { return myPow(1/x, -n) }
+        return n % 2 == 0 ? myPow(x * x, n/2) : x * myPow(x * x, n/2)
+    }
 }
 
 
@@ -31,3 +37,7 @@ node1.right = node3
 node3.right = node4
 
 print(Solution().maxDepth(node1))
+print(Solution().myPow(2.0, 10))
+print(Solution().myPow(2.1, 3))
+print(Solution().myPow(2.0, -2))
+print(Solution().myPow(0.00001, 2147483647))
