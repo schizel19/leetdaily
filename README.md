@@ -2,6 +2,13 @@
 This repository is for daily leet practice
 
 ## Table of Contents
+
+- [Day 13 - Recursion I: Challenge (pt.2)](./Source%2FDay13%2FREADME.md#day-13---recursion-i-challenge-pt2)
+  * [1. Maximum Depth of Binary Tree](./Source%2FDay13%2FREADME.md#1-maximum-depth-of-binary-tree)
+  * [2. Pow(x,n)](./Source%2FDay13%2FREADME.md#2-powxn)
+  * [3. Merge two sorted lists](./Source%2FDay13%2FREADME.md#3-merge-two-sorted-lists)
+  * [4. K-th Symbol in Grammar](./Source%2FDay13%2FREADME.md#4-k-th-symbol-in-grammar)
+  * [5. Unique Binary Search Trees II](./Source%2FDay13%2FREADME.md#5-unique-binary-search-trees-ii)
 - [Day 12 - Recursion I: Recurence and Memoization (pt.1)](./Source%2FDay12%2FREADME.md#day-12---recursion-i-recurence-and-memoization-pt1)
   * [1. Swap Nodes in Pairs](./Source%2FDay12%2FREADME.md#1-swap-nodes-in-pairs)
   * [2. Reverse a Linked List](./Source%2FDay12%2FREADME.md#2-reverse-a-linked-list)
