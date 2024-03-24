@@ -1,3 +1,4 @@
+import Foundation
 
 public class TreeNode {
   public var val: Int
@@ -58,6 +59,18 @@ class Solution {
             return list2
         }
     }
+    
+    func kthGrammar(_ n: Int, _ k: Int) -> Int {
+        if n == 1 { return 0 }
+        let totalElements = Int(pow(2.0, Double(n - 1)))
+        let halfElements = totalElements/2
+        
+        if k > halfElements {
+            return 1 - kthGrammar(n, k - halfElements)
+        }
+        
+        return kthGrammar(n - 1, k)
+    }
 }
 
 
@@ -92,3 +105,8 @@ nodeE.next = nodeF
 
 // 1, 2, 4 + 1, 3, 4 = 1, 1, 2, 3, 4, 4
 Solution().mergeTwoLists(nodeA, nodeD)?.list()
+
+
+print(Solution().kthGrammar(1, 1))
+print(Solution().kthGrammar(2, 1))
+print(Solution().kthGrammar(2, 2))
