@@ -2,7 +2,13 @@
 This repository is for daily leet practice
 
 ## Table of Contents
-
+- [Day 14 - Hash Table: Practical Application (pt. 1)](./Source%2FDay14%2FREADME.md#day-14---hash-table-practical-application-pt-1)
+  * [1. Design HashSet](./Source%2FDay14%2FREADME.md#1-design-hashset)
+  * [2. Design HashMap](./Source%2FDay14%2FREADME.md#2-design-hashmap)
+  * [3. Contains Duplicate](./Source%2FDay14%2FREADME.md#3-contains-duplicate)
+  * [4. Single Number](./Source%2FDay14%2FREADME.md#4-single-number)
+  * [5. Intersection of Two Arrays](./Source%2FDay14%2FREADME.md#5-intersection-of-two-arrays)
+  * [6. Happy Number](./Source%2FDay14%2FREADME.md#6-happy-number)
 - [Day 13 - Recursion I: Challenge (pt.2)](./Source%2FDay13%2FREADME.md#day-13---recursion-i-challenge-pt2)
   * [1. Maximum Depth of Binary Tree](./Source%2FDay13%2FREADME.md#1-maximum-depth-of-binary-tree)
   * [2. Pow(x,n)](./Source%2FDay13%2FREADME.md#2-powxn)
