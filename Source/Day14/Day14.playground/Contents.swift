@@ -66,9 +66,48 @@ class Solution {
         }
         return map.first(where: { $0.value == 1 })!.key
     }
+    
+    func intersection(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
+        var set1 = Set(nums1)
+        var set2 = Set(nums2)
+        
+        var setA: Set<Int> = set1.count > set2.count ? set2 : set1
+        var setB: Set<Int> = set1.count > set2.count ? set1 : set2
+        
+        return setA.filter { setB.contains($0) }
+    }
+    
+    // swifty
+    func intersection2(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
+        return Array(Set(nums1).intersection(Set(nums2)))
+    }
+    
+    func isHappy(_ n: Int) -> Bool {
+        var set = Set<Int>()
+        var n = n
+        
+        while n != 1 {
+            if set.contains(n) { return false }
+            set.insert(n)
+            n = squareDigits(n: n)
+        }
+        
+        return true
+    }
+    
+    func squareDigits(n: Int) -> Int {
+        var num = n
+        var total = 0
+        
+        while num != 0 {
+            let r = num % 10
+            total += (r * r)
+            num = num/10
+        }
+        
+        return total
+    }
 }
-
-
 let obj = MyHashSet()
 obj.add(1)
 obj.remove(2)
@@ -92,3 +131,9 @@ print(ret_2)
 obj2.put(1000000, 1)
 
 print(Solution().containsDuplicate([1, 2, 3, 1]))
+
+print(Solution().singleNumber([4, 1, 2, 2, 1]))
+print(Solution().intersection([4, 9, 5], [9, 4, 8, 4]))
+print(Solution().intersection([1, 2, 2, 1], [2, 2]))
+print(Solution().isHappy(19))
+print(Solution().isHappy(2))
