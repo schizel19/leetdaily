@@ -1,6 +1,6 @@
 class MyHashSet {
-    let size = 10000
-    var array = [[Int]](repeating: .init(), count: 10000)
+    let size = 1000
+    var array = [[Int]](repeating: .init(), count: 1000)
     
     init() {}
     
@@ -47,6 +47,19 @@ class MyHashMap {
     }
 }
 
+class Solution {
+    func containsDuplicate(_ nums: [Int]) -> Bool {
+        var obj = Set<Int>()
+        
+        for num in nums {
+            if obj.contains(num) { return true }
+            obj.insert(num)
+        }
+        
+        return false
+    }
+}
+
 
 let obj = MyHashSet()
 obj.add(1)
@@ -69,3 +82,5 @@ let ret_2: Int = obj2.get(1)
 obj2.remove(1)
 print(ret_2)
 obj2.put(1000000, 1)
+
+print(Solution().containsDuplicate([1, 2, 3, 1]))
