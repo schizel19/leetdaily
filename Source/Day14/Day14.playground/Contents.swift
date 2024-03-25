@@ -58,6 +58,14 @@ class Solution {
         
         return false
     }
+    
+    func singleNumber(_ nums: [Int]) -> Int {
+        var map = [Int: Int]()
+        for num in nums {
+            map[num] = map[num, default: 0] + 1
+        }
+        return map.first(where: { $0.value == 1 })!.key
+    }
 }
 
 

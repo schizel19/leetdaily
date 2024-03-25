@@ -30,3 +30,12 @@ Given an integer array nums, return true if any value appears at least twice in 
 Input: nums = [1,2,3,1]
 Output: true
 ```
+
+## 4. Single Number
+
+Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+
+```
+Input: nums = [2,2,1]
+Output: 1
+```
