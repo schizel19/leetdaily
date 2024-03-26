@@ -59,6 +59,17 @@ class Solution {
         return res
     }
     
+    func firstUniqChar(_ s: String) -> Int {
+        let map = s.reduce(into: [Character: Int]()) { dic, character in
+            dic[character] = dic[character, default: 0] + 1
+        }
+        
+        for (index, char) in s.enumerated() {
+            if map[char]! == 1 { return index }
+        }
+        
+        return -1
+    }
 }
 
 print(Solution().twoSum([2, 7, 11, 15], 9)) // [0, 1]
@@ -73,3 +84,7 @@ print(Solution().isIsomorphic("badc", "baba")) // true
 print(Solution().findRestaurant(["Shogun","Tapioca Express","Burger King","KFC"], ["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"])) // Shogun
 print(Solution().findRestaurant(["Shogun","Tapioca Express","Burger King","KFC"], ["KFC","Shogun","Burger King"])) // Shogun
 print(Solution().findRestaurant(["happy","sad","good"], ["sad","happy","good"])) // sad, happy
+
+print(Solution().firstUniqChar("leetcode")) // 0
+print(Solution().firstUniqChar("loveleetcode")) // 2
+print(Solution().firstUniqChar("aabb")) // -1
