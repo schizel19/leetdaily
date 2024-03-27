@@ -2,6 +2,13 @@
 This repository is for daily leet practice
 
 ## Table of Contents
+- [Day 15 - Hash Table: Hash Map (pt. 2)](./Source%2FDay15%2FREADME.md#day-15---hash-table-hash-map-pt-2)
+  * [1. Two Sum](./Source%2FDay15%2FREADME.md#1-two-sum)
+  * [2. Isomorphic Strings](./Source%2FDay15%2FREADME.md#2-isomorphic-strings)
+  * [3. Minimum Index Sum of Two Lists](./Source%2FDay15%2FREADME.md#3-minimum-index-sum-of-two-lists)
+  * [4. First Unique Character in a String](./Source%2FDay15%2FREADME.md#4-first-unique-character-in-a-string)
+  * [5. Intersection of Two Arrays II](./Source%2FDay15%2FREADME.md#5-intersection-of-two-arrays-ii)
+  * [6. Contains Duplicate II](./Source%2FDay15%2FREADME.md#6-contains-duplicate-ii)
 - [Day 14 - Hash Table: Practical Application (pt. 1)](./Source%2FDay14%2FREADME.md#day-14---hash-table-practical-application-pt-1)
   * [1. Design HashSet](./Source%2FDay14%2FREADME.md#1-design-hashset)
   * [2. Design HashMap](./Source%2FDay14%2FREADME.md#2-design-hashmap)
