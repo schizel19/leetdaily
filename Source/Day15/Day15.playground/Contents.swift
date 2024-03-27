@@ -90,6 +90,19 @@ class Solution {
         
         return result
     }
+    
+    func containsNearbyDuplicate(_ nums: [Int], _ k: Int) -> Bool {
+        var map = [Int: Int]()
+        
+        for (i, val) in nums.enumerated() {
+            if let j = map[val], abs(i - j) <= k {
+                return true
+            }
+            map[val] = i
+        }
+        
+        return false
+    }
 }
 
 print(Solution().twoSum([2, 7, 11, 15], 9)) // [0, 1]
@@ -111,3 +124,7 @@ print(Solution().firstUniqChar("aabb")) // -1
 
 print(Solution().intersect([1, 2, 2, 1], [2, 2])) // [2, 2]
 print(Solution().intersect([4, 9, 5], [9, 4, 9, 8, 4])) // [4,9]
+
+print(Solution().containsNearbyDuplicate([1,2,3,1], 3)) // true
+print(Solution().containsNearbyDuplicate([1,0,1,1], 1)) // true
+print(Solution().containsNearbyDuplicate([1,2,3,1,2,3], 2)) // false
