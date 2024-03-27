@@ -70,6 +70,26 @@ class Solution {
         
         return -1
     }
+    
+    func intersect(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
+        var map = [Int: Int]()
+        let numsA = nums1.count > nums2.count ? nums1 : nums2
+        let numsB = nums1.count > nums2.count ? nums2 : nums1
+        
+        var result = [Int]()
+        
+        for num in numsB {
+            map[num] = map[num, default: 0] + 1
+        }
+        
+        for num in numsA {
+            guard let count = map[num], count > 0 else { continue }
+            result.append(num)
+            map[num] = count - 1
+        }
+        
+        return result
+    }
 }
 
 print(Solution().twoSum([2, 7, 11, 15], 9)) // [0, 1]
@@ -88,3 +108,6 @@ print(Solution().findRestaurant(["happy","sad","good"], ["sad","happy","good"]))
 print(Solution().firstUniqChar("leetcode")) // 0
 print(Solution().firstUniqChar("loveleetcode")) // 2
 print(Solution().firstUniqChar("aabb")) // -1
+
+print(Solution().intersect([1, 2, 2, 1], [2, 2])) // [2, 2]
+print(Solution().intersect([4, 9, 5], [9, 4, 9, 8, 4])) // [4,9]
