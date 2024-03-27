@@ -2,6 +2,10 @@
 This repository is for daily leet practice
 
 ## Table of Contents
+- [Day 16 - Hash Table: Keys (pt. 3)](./Source%2FDay16%2FREADME.md#day-16---hash-table-keys-pt-3)
+  * [1. Group Anagrams](./Source%2FDay16%2FREADME.md#1-group-anagrams)
+  * [2. Valid Sudoku](./Source%2FDay16%2FREADME.md#2-valid-sudoku)
+  * [3. Find Duplicate Subtrees](./Source%2FDay16%2FREADME.md#3-find-duplicate-subtrees)
 - [Day 15 - Hash Table: Hash Map (pt. 2)](./Source%2FDay15%2FREADME.md#day-15---hash-table-hash-map-pt-2)
   * [1. Two Sum](./Source%2FDay15%2FREADME.md#1-two-sum)
   * [2. Isomorphic Strings](./Source%2FDay15%2FREADME.md#2-isomorphic-strings)
