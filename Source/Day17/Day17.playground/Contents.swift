@@ -83,6 +83,37 @@ class Solution {
     }
 }
 
+class RandomizedSet {
+    var indeces = [Int: Int]()
+    var elements = [Int]()
+    init() {
+        
+    }
+    
+    func insert(_ val: Int) -> Bool {
+        if let _ = indeces[val] { return false }
+        indeces[val] = elements.count
+        elements.append(val)
+        return true
+    }
+    
+    func remove(_ val: Int) -> Bool {
+        guard let index = indeces.removeValue(forKey: val) else { return false }
+        
+        if index == elements.count - 1 {
+            elements.removeLast()
+        } else {
+            elements[index] = elements.removeLast()
+            indeces[elements[index]] = index
+        }
+        return true
+    }
+    
+    func getRandom() -> Int {
+        return elements.randomElement()!
+    }
+}
+
 print(Solution().numJewelsInStones("aA", "aAAbbbb")) // 3
 print(Solution().numJewelsInStones("z", "ZZ")) //0
 print(Solution().lengthOfLongestSubstring("abcabcbb")) //3
@@ -96,3 +127,11 @@ print(Solution().topKFrequent([1], 1)) // [1]
 print(Solution().topKFrequent([1, 2], 2)) // [1, 2]
 print(Solution().topKFrequent([1, -1], 1)) // [-1]
 print(Solution().topKFrequent([-1, -1], 1)) // [-1]
+
+let obj = RandomizedSet()
+print(obj.remove(0)) // false
+print(obj.remove(0)) // false
+print(obj.insert(0)) // true
+print(obj.getRandom()) // 0
+print(obj.remove(0)) // true
+print(obj.insert(0)) // true
