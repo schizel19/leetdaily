@@ -39,6 +39,24 @@ class Solution {
         
         return result
     }
+    
+    func fourSumCount(_ nums1: [Int], _ nums2: [Int], _ nums3: [Int], _ nums4: [Int]) -> Int {
+        var sums = [Int: Int]()
+        for i in nums1 {
+            for j in nums2 {
+                sums[i + j] = sums[i + j, default: 0] + 1
+            }
+        }
+        
+        var count = 0
+        for k in nums3 {
+            for l in nums4 {
+                count += sums[-(k + l), default: 0]
+            }
+        }
+        
+        return count
+    }
 }
 
 print(Solution().numJewelsInStones("aA", "aAAbbbb")) // 3
@@ -46,3 +64,6 @@ print(Solution().numJewelsInStones("z", "ZZ")) //0
 print(Solution().lengthOfLongestSubstring("abcabcbb")) //3
 print(Solution().lengthOfLongestSubstring("bbbbb")) // 1
 print(Solution().lengthOfLongestSubstring("pwwkew")) // 3
+print(Solution().fourSumCount([1, 2], [-2, -1], [-1, 2], [0, 2])) // 2
+print(Solution().fourSumCount([0], [0], [0], [0])) // 1
+print(Solution().fourSumCount([-1, -1], [-1, 1], [-1, 1], [1, -1])) // 6
