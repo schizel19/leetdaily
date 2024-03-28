@@ -57,6 +57,30 @@ class Solution {
         
         return count
     }
+    
+    func topKFrequent(_ nums: [Int], _ k: Int) -> [Int] {
+        var frequency = [Int: Int]()
+        for num in nums {
+            frequency[num] = frequency[num, default: 0] + 1
+        }
+        
+        var buckets = [[Int]](repeating: [], count: nums.count + 1)
+        for (key, value) in frequency {
+            buckets[value] = buckets[value] + [key]
+        }
+        
+        var result = [Int]()
+        var k = k
+        
+        for i in stride(from: buckets.count - 1, through: 0, by: -1) {
+            if buckets[i].isEmpty { continue }
+            result.append(contentsOf: buckets[i])
+            k -= buckets[i].count
+            if k == 0 { break }
+        }
+        
+        return result
+    }
 }
 
 print(Solution().numJewelsInStones("aA", "aAAbbbb")) // 3
@@ -67,3 +91,8 @@ print(Solution().lengthOfLongestSubstring("pwwkew")) // 3
 print(Solution().fourSumCount([1, 2], [-2, -1], [-1, 2], [0, 2])) // 2
 print(Solution().fourSumCount([0], [0], [0], [0])) // 1
 print(Solution().fourSumCount([-1, -1], [-1, 1], [-1, 1], [1, -1])) // 6
+print(Solution().topKFrequent([1,1,1,2,2,3], 2)) // [1, 2]
+print(Solution().topKFrequent([1], 1)) // [1]
+print(Solution().topKFrequent([1, 2], 2)) // [1, 2]
+print(Solution().topKFrequent([1, -1], 1)) // [-1]
+print(Solution().topKFrequent([-1, -1], 1)) // [-1]
