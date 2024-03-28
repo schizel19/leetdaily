@@ -21,6 +21,16 @@
       location = "group:Source"
       name = "Source">
       <Group
+         location = "group:Day17"
+         name = "Day17">
+         <FileRef
+            location = "group:README.md">
+         </FileRef>
+         <FileRef
+            location = "group:/Users/patrickdomingo/Desktop/leetdaily/Source/Day17/Day17.playground">
+         </FileRef>
+      </Group>
+      <Group
          location = "group:Day16"
          name = "Day16">
          <FileRef

@@ -2,6 +2,12 @@
 This repository is for daily leet practice
 
 ## Table of Contents
+- [Day 17 - Hash Table: Challenge (pt. 4)](./Source%2FDay17%2FREADME.md#day-17---hash-table-challenge-pt-4)
+  * [1. Jewels and Stones](./Source%2FDay17%2FREADME.md#1-jewels-and-stones)
+  * [2. Longest Substring Without Repeating Characters](./Source%2FDay17%2FREADME.md#2-longest-substring-without-repeating-characters)
+  * [3. 4Sum II](./Source%2FDay17%2FREADME.md#3-4sum-ii)
+  * [4. Top K Frequent Elements](./Source%2FDay17%2FREADME.md#4-top-k-frequent-elements)
+  * [5. Insert Delete GetRandom O(1)](./Source%2FDay17%2FREADME.md#5-insert-delete-getrandom-o1)
 - [Day 16 - Hash Table: Keys (pt. 3)](./Source%2FDay16%2FREADME.md#day-16---hash-table-keys-pt-3)
   * [1. Group Anagrams](./Source%2FDay16%2FREADME.md#1-group-anagrams)
   * [2. Valid Sudoku](./Source%2FDay16%2FREADME.md#2-valid-sudoku)
