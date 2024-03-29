@@ -2,6 +2,11 @@
 This repository is for daily leet practice
 
 ## Table of Contents
+- [Day 18 - Queue & Stack: Queue (pt. 1)](./Source%2FDay18%2FREADME.md#day-18---queue--stack-queue-pt-1)
+  * [1. Design Circular Queue](./Source%2FDay18%2FREADME.md#1-design-circular-queue)
+  * [2. Number of Islands](./Source%2FDay18%2FREADME.md#2-number-of-islands)
+  * [3. Open the Lock](./Source%2FDay18%2FREADME.md#3-open-the-lock)
+  * [4. Perfect Squares](./Source%2FDay18%2FREADME.md#4-perfect-squares)
 - [Day 17 - Hash Table: Challenge (pt. 4)](./Source%2FDay17%2FREADME.md#day-17---hash-table-challenge-pt-4)
   * [1. Jewels and Stones](./Source%2FDay17%2FREADME.md#1-jewels-and-stones)
   * [2. Longest Substring Without Repeating Characters](./Source%2FDay17%2FREADME.md#2-longest-substring-without-repeating-characters)
