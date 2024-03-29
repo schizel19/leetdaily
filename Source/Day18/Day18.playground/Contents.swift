@@ -96,6 +96,79 @@ class Solution {
         
         return islands
     }
+    
+    func openLock(_ deadends: [String], _ target: String) -> Int {
+        let nextSlot: [Character: Character] = [
+            "0": "1",
+            "1": "2",
+            "2": "3",
+            "3": "4",
+            "4": "5",
+            "5": "6",
+            "6": "7",
+            "7": "8",
+            "8": "9",
+            "9": "0",
+        ]
+        
+        let prevSlot: [Character: Character] = [
+            "0": "9",
+            "1": "0",
+            "2": "1",
+            "3": "2",
+            "4": "3",
+            "5": "4",
+            "6": "5",
+            "7": "6",
+            "8": "7",
+            "9": "8",
+        ]
+        
+        var visited = Set<String>(deadends)
+        var pending = [String]()
+        
+        var turns = 0
+        
+        if visited.contains("0000") { return -1 }
+        
+        visited.contains("0000")
+        pending.append("0000")
+        
+        while pending.count > 0 {
+            let k = pending.count
+            for _ in 0..<k {
+                var current = pending.removeFirst()
+                
+                if current == target {
+                    return turns
+                }
+                
+                for wheel in 0..<4 {
+                    var new = Array(current)
+                    new[wheel] = nextSlot[new[wheel]]!
+                    let newStr = String(new)
+                    
+                    if !visited.contains(newStr) {
+                        pending.append(newStr)
+                        visited.insert(newStr)
+                    }
+                    
+                    var prev = Array(current)
+                    prev[wheel] = prevSlot[prev[wheel]]!
+                    let prevStr = String(prev)
+                    
+                    if !visited.contains(prevStr) {
+                        pending.append(prevStr)
+                        visited.insert(prevStr)
+                    }
+                }
+            }
+            
+            turns += 1
+        }
+        
+        return -1
+    }
 }
 
 print(Solution().numIslands([
@@ -111,3 +184,7 @@ print(Solution().numIslands([
     ["0","0","1","0","0"],
     ["0","0","0","1","1"]
 ])) // 3
+
+print(Solution().openLock(["0201","0101","0102","1212","2002"], "0202")) // 6
+print(Solution().openLock(["8888"], "0009")) // 1
+print(Solution().openLock(["8887","8889","8878","8898","8788","8988","7888","9888"], "8888")) // -1
