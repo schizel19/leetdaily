@@ -169,6 +169,41 @@ class Solution {
         
         return -1
     }
+    
+    func numSquares(_ n: Int) -> Int {
+        if n <= 1 { return n }
+        var visited = Set<Int>()
+        var queue = [Int]()
+        queue.append(0)
+        visited.insert(0)
+        
+        var level = 0
+        
+        while queue.count > 0 {
+            let size = queue.count
+            for _ in 0..<size {
+                let current = queue.removeFirst()
+                var j = 1
+                
+                while current + (j * j) <= n {
+                    let temp = current + j * j
+                    if temp == n {
+                        return level + 1
+                    }
+                    if !visited.contains(temp) {
+                        queue.append(temp)
+                        visited.insert(temp)
+                    }
+                    j += 1
+                }
+            }
+            
+            level += 1
+        }
+        
+        return 0
+    }
+    
 }
 
 print(Solution().numIslands([
@@ -185,6 +220,10 @@ print(Solution().numIslands([
     ["0","0","0","1","1"]
 ])) // 3
 
+print(Solution().numSquares(12)) // 3, 4 + 4 + 4
+print(Solution().numSquares(13)) // 2, 4 + 9
+
 print(Solution().openLock(["0201","0101","0102","1212","2002"], "0202")) // 6
 print(Solution().openLock(["8888"], "0009")) // 1
 print(Solution().openLock(["8887","8889","8878","8898","8788","8988","7888","9888"], "8888")) // -1
+
