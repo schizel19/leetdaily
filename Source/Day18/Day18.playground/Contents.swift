@@ -53,3 +53,61 @@ print(obj.Front()) // 2
 print(obj.Rear()) // 6
 print(obj.isEmpty()) // false
 print(obj.isFull()) // true
+
+class Solution {
+    
+    func numIslands(_ grid: [[Character]]) -> Int {
+        if grid.isEmpty { return 0 }
+        let rows = grid.count
+        let columns = grid[0].count
+        var visited = Set<String>()
+        var islands = 0
+        
+        func bfs(_ row: Int, _ column: Int) {
+            var queue = [(Int, Int)]()
+            visited.insert("\(row),\(column)")
+            queue.append((row, column))
+            
+            while queue.count > 0 {
+                let (row, column) = queue.removeFirst()
+                let directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
+                
+                for direction in directions {
+                    let (newR, newC) = (row + direction.0, column + direction.1)
+                    if newR >= 0, newR < rows,
+                       newC >= 0, newC < columns,
+                       grid[newR][newC] == "1",
+                       !visited.contains("\(newR),\(newC)") {
+                        queue.append((newR, newC))
+                        visited.insert("\(newR),\(newC)")
+                    }
+                }
+            }
+        }
+        
+        for row in 0..<rows {
+            for column in 0..<columns {
+                if grid[row][column] == "1", !visited.contains("\(row),\(column)") {
+                    bfs(row, column)
+                    islands += 1
+                }
+            }
+        }
+        
+        return islands
+    }
+}
+
+print(Solution().numIslands([
+    ["1","1","1","1","0"],
+    ["1","1","0","1","0"],
+    ["1","1","0","0","0"],
+    ["0","0","0","0","0"]
+])) // 1
+
+print(Solution().numIslands([
+    ["1","1","0","0","0"],
+    ["1","1","0","0","0"],
+    ["0","0","1","0","0"],
+    ["0","0","0","1","1"]
+])) // 3
