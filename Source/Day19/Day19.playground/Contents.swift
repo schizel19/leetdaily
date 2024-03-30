@@ -55,6 +55,7 @@ class Solution {
         return charStack.isEmpty
     }
     
+    // backwards
     func dailyTemperatures(_ temperatures: [Int]) -> [Int] {
         var indexStack = [Int]()
         var results = [Int](repeating: 0, count: temperatures.count)
@@ -74,6 +75,21 @@ class Solution {
         return results
     }
     
+    // forwards
+    func dailyTemperatures2(_ temperatures: [Int]) -> [Int] {
+        var indexStack = [Int]()
+        var results = [Int](repeating: 0, count: temperatures.count)
+        
+        for (index, temp) in temperatures.enumerated() {
+            while !indexStack.isEmpty, temp > temperatures[indexStack.last!] {
+                let last = indexStack.removeLast()
+                results[last] = index - last
+            }
+            indexStack.append(index)
+        }
+        
+        return results
+    }
 }
 
 print(Solution().isValid("()")) // true
@@ -83,3 +99,6 @@ print(Solution().isValid("(({{}[[{}]]}))")) // true
 print(Solution().dailyTemperatures([73,74,75,71,69,72,76,73])) // [1,1,4,2,1,1,0,0]
 print(Solution().dailyTemperatures([30,40,50,60])) // [1,1,1,0]
 print(Solution().dailyTemperatures([30,60,90])) // [1,1,0]
+print(Solution().dailyTemperatures2([73,74,75,71,69,72,76,73])) // [1,1,4,2,1,1,0,0]
+print(Solution().dailyTemperatures2([30,40,50,60])) // [1,1,1,0]
+print(Solution().dailyTemperatures2([30,60,90])) // [1,1,0]
