@@ -2,6 +2,11 @@
 This repository is for daily leet practice
 
 ## Table of Contents
+- [Day 19 - Queue & Stack: Stack (pt. 2)](./Source%2FDay19%2FREADME.md#day-19---queue--stack-stack-pt-2)
+  * [1. Min Stack](./Source%2FDay19%2FREADME.md#1-min-stack)
+  * [2. Valid Parentheses](./Source%2FDay19%2FREADME.md#2-valid-parentheses)
+  * [3. Daily Temperatures](./Source%2FDay19%2FREADME.md#3-daily-temperatures)
+  * [4. Evaluate Reverse Polish Notation](./Source%2FDay19%2FREADME.md#4-evaluate-reverse-polish-notation)
 - [Day 18 - Queue & Stack: Queue (pt. 1)](./Source%2FDay18%2FREADME.md#day-18---queue--stack-queue-pt-1)
   * [1. Design Circular Queue](./Source%2FDay18%2FREADME.md#1-design-circular-queue)
   * [2. Number of Islands](./Source%2FDay18%2FREADME.md#2-number-of-islands)
