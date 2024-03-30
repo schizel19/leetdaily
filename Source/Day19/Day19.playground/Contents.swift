@@ -54,9 +54,32 @@ class Solution {
         
         return charStack.isEmpty
     }
+    
+    func dailyTemperatures(_ temperatures: [Int]) -> [Int] {
+        var indexStack = [Int]()
+        var results = [Int](repeating: 0, count: temperatures.count)
+        
+        for i in stride(from: temperatures.count - 1, through: 0, by: -1) {
+            while !indexStack.isEmpty, temperatures[indexStack.last!] <= temperatures[i] {
+                indexStack.removeLast()
+            }
+            
+            if !indexStack.isEmpty {
+                results[i] = indexStack.last! - i
+            }
+            
+            indexStack.append(i)
+        }
+        
+        return results
+    }
+    
 }
 
 print(Solution().isValid("()")) // true
 print(Solution().isValid("()[]{}")) // true
 print(Solution().isValid("false")) // false
 print(Solution().isValid("(({{}[[{}]]}))")) // true
+print(Solution().dailyTemperatures([73,74,75,71,69,72,76,73])) // [1,1,4,2,1,1,0,0]
+print(Solution().dailyTemperatures([30,40,50,60])) // [1,1,1,0]
+print(Solution().dailyTemperatures([30,60,90])) // [1,1,0]
