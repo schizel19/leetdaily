@@ -90,6 +90,30 @@ class Solution {
         
         return results
     }
+    
+    func evalRPN(_ tokens: [String]) -> Int {
+        var stack = [Int]()
+        for c in tokens {
+            switch c {
+            case "+":
+                stack.append(stack.removeLast() + stack.removeLast())
+            case "-":
+                let val1 = stack.removeLast()
+                let val2 = stack.removeLast()
+                stack.append(val2 - val1)
+            case "/":
+                let val1 = stack.removeLast()
+                let val2 = stack.removeLast()
+                stack.append(val2 / val1)
+            case "*":
+                stack.append(stack.removeLast() * stack.removeLast())
+            default:
+                stack.append(Int(c)!)
+            }
+        }
+        
+        return stack.first!
+    }
 }
 
 print(Solution().isValid("()")) // true
@@ -102,3 +126,7 @@ print(Solution().dailyTemperatures([30,60,90])) // [1,1,0]
 print(Solution().dailyTemperatures2([73,74,75,71,69,72,76,73])) // [1,1,4,2,1,1,0,0]
 print(Solution().dailyTemperatures2([30,40,50,60])) // [1,1,1,0]
 print(Solution().dailyTemperatures2([30,60,90])) // [1,1,0]
+print(Solution().evalRPN(["2","1","+","3","*"])) // ((2 + 1) * 3) = 9
+print(Solution().evalRPN(["4","13","5","/","+"])) // (4 + (13 / 5)) = 6
+print(Solution().evalRPN(["10","6","9","3","+","-11","*","/","*","17","+","5","+"]))
+// ((10 * (6 / ((9 + 3) * -11))) + 17) + 5 = 22
