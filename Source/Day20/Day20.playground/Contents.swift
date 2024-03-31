@@ -77,6 +77,39 @@ class Solution2 {
         
         return dfs(node)
     }
+    
+    // simple
+    func findTargetSumWays(_ nums: [Int], _ target: Int) -> Int {
+        func dfs(from index: Int, running: Int = 0) -> Int {
+            if index == nums.count {
+                return running == target ? 1 : 0
+            }
+            return dfs(from: index + 1, running: running + nums[index]) + dfs(from: index + 1, running: running - nums[index])
+        }
+        return dfs(from: 0)
+    }
+    
+    // with memoize
+    func findTargetSumWays2(_ nums: [Int], _ target: Int) -> Int {
+        var map = [String: Int]()
+        func dfs(from index: Int, running: Int = 0) -> Int {
+            if let count = map[("\(index)->\(running)")] {
+                return count
+            }
+            
+            if index == nums.count {
+                return running == target ? 1 : 0
+            }
+            
+            let positive = dfs(from: index + 1, running: running + nums[index])
+            let negative = dfs(from: index + 1, running: running - nums[index])
+            
+            map[("\(index)->\(running)")] = positive + negative
+
+            return positive + negative
+        }
+        return dfs(from: 0)
+    }
 }
 
 let node1 = Node(1)
@@ -91,3 +124,18 @@ node4.neighbors = [node1, node3]
 
 print(Solution2().cloneGraph(node1) === node1) // false
 print(Solution2().cloneGraph(node1)!.val) // 1
+
+print(Solution2().findTargetSumWays([1,1,1,1,1], 3)) // 5
+/*
+ -1 + 1 + 1 + 1 + 1 = 3
+ +1 - 1 + 1 + 1 + 1 = 3
+ +1 + 1 - 1 + 1 + 1 = 3
+ +1 + 1 + 1 - 1 + 1 = 3
+ +1 + 1 + 1 + 1 - 1 = 3
+ */
+
+print(Solution2().findTargetSumWays([1], 1)) // 1
+
+print(Solution2().findTargetSumWays2([1,1,1,1,1], 3)) // 5
+print(Solution2().findTargetSumWays2([1], 1)) // 1
+
