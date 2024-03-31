@@ -58,6 +58,19 @@ public class Node {
     }
 }
 
+public class TreeNode {
+  public var val: Int
+  public var left: TreeNode?
+  public var right: TreeNode?
+  public init() { self.val = 0; self.left = nil; self.right = nil; }
+  public init(_ val: Int) { self.val = val; self.left = nil; self.right = nil; }
+  public init(_ val: Int, _ left: TreeNode?, _ right: TreeNode?) {
+      self.val = val
+      self.left = left
+      self.right = right
+  }
+}
+
 class Solution2 {
     func cloneGraph(_ node: Node?) -> Node? {
         var map = [Int: Node?]()
@@ -105,10 +118,28 @@ class Solution2 {
             let negative = dfs(from: index + 1, running: running - nums[index])
             
             map[("\(index)->\(running)")] = positive + negative
-
+            
             return positive + negative
         }
-        return dfs(from: 0)
+        return dfs(from: 0)    
+    }
+    
+    func inorderTraversal(_ root: TreeNode?) -> [Int] {
+        var result = [Int]()
+        var nodes = [TreeNode?]()
+        var curr = root
+        
+        while !nodes.isEmpty || curr != nil {
+            while curr != nil {
+                nodes.append(curr)
+                curr = curr?.left
+            }
+            curr = nodes.removeLast()
+            result.append(curr!.val)
+            curr = curr?.right
+        }
+        
+        return result
     }
 }
 
@@ -139,3 +170,12 @@ print(Solution2().findTargetSumWays([1], 1)) // 1
 print(Solution2().findTargetSumWays2([1,1,1,1,1], 3)) // 5
 print(Solution2().findTargetSumWays2([1], 1)) // 1
 
+let nodeA = TreeNode(1)
+let nodeB = TreeNode(2)
+let nodeC = TreeNode(3)
+
+nodeA.right = nodeB
+nodeB.left = nodeC
+
+print(Solution2().inorderTraversal(nodeA)) // [1,3,2]
+print(Solution2().inorderTraversal(nil)) // []
