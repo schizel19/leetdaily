@@ -2,6 +2,11 @@
 This repository is for daily leet practice
 
 ## Table of Contents
+- [Day 20 - Queue & Stack: DFS (pt. 3)](./Source%2FDay20%2FREADME.md#day-20---queue--stack-dfs-pt-3)
+  * [1. Number of Islands (dfs)](./Source%2FDay20%2FREADME.md#1-number-of-islands-dfs)
+  * [2. Clone Graph](./Source%2FDay20%2FREADME.md#2-clone-graph)
+  * [3. Target Sum](./Source%2FDay20%2FREADME.md#3-target-sum)
+  * [4. Binary Tree Inorder Traversal](./Source%2FDay20%2FREADME.md#4-binary-tree-inorder-traversal)
 - [Day 19 - Queue & Stack: Stack (pt. 2)](./Source%2FDay19%2FREADME.md#day-19---queue--stack-stack-pt-2)
   * [1. Min Stack](./Source%2FDay19%2FREADME.md#1-min-stack)
   * [2. Valid Parentheses](./Source%2FDay19%2FREADME.md#2-valid-parentheses)
