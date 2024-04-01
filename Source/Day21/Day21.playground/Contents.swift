@@ -101,8 +101,29 @@ class Solution {
         
         return currStr
     }
+    
+    func floodFill(_ image: [[Int]], _ sr: Int, _ sc: Int, _ color: Int) -> [[Int]] {
+        var visited = Set<String>()
+        var image = image
+        var ref = image[sr][sc]
+        func flood(_ image: inout [[Int]], _ sr: Int, _ sc: Int, _ color: Int) {
+            guard sr >= 0, sr < image.count, sc >= 0, sc < image[sr].count, !visited.contains("\(sr),\(sc)"),
+                  image[sr][sc] == ref else { return }
+            image[sr][sc] = color
+            visited.insert("\(sr),\(sc)")
+            flood(&image, sr - 1, sc, color)
+            flood(&image, sr + 1, sc, color)
+            flood(&image, sr, sc - 1, color)
+            flood(&image, sr, sc + 1, color)
+        }
+        
+        flood(&image, sr, sc, color)
+        return image
+    }
 }
 
 print(Solution().decodeString("3[a]2[bc]") == "aaabcbc") // aaabcbc
 print(Solution().decodeString("3[a2[c]]") == "accaccacc") // accaccacc
 print(Solution().decodeString("2[abc]3[cd]ef") == "abcabccdcdcdef") // abcabccdcdcdef
+
+print(Solution().floodFill([[1,1,1],[1,1,0],[1,0,1]], 1, 1, 2)) // return [[2,2,2],[2,2,0],[2,0,1]]
