@@ -39,3 +39,38 @@ print(obj.pop()) // 3
 print(obj.empty()) // false
 print(obj.pop()) // 5
 print(obj.empty()) // true
+
+class MyStack {
+    
+    private var queue = [Int]()
+
+    init() { }
+    
+    func push(_ x: Int) {
+        queue.append(x)
+        for _ in 0..<queue.count - 1 {
+            queue.append(queue.removeFirst())
+        }
+    }
+    
+    func pop() -> Int {
+        queue.removeFirst()
+    }
+    
+    func top() -> Int {
+        queue.first!
+    }
+    
+    func empty() -> Bool {
+        queue.isEmpty
+    }
+}
+
+let stack = MyStack()
+stack.push(3)
+stack.push(5)
+print(stack.top()) // 5
+print(stack.pop()) // 5
+print(stack.empty()) // false
+print(stack.pop()) // 3
+print(stack.empty()) // true
