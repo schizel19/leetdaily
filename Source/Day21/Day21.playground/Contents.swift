@@ -129,7 +129,7 @@ class Solution {
             for column in 0..<mat[0].count {
                 if mat[row][column] == 0 {
                     queue.append((row, column))
-                    distance[row][column] = 0                    
+                    distance[row][column] = 0
                 }
             }
         }
@@ -146,6 +146,25 @@ class Solution {
         
         return distance
     }
+    
+    func canVisitAllRooms(_ rooms: [[Int]]) -> Bool {
+        var visited = Set<Int>()
+        var toVisit = [0]
+        
+        while !toVisit.isEmpty {
+            let room = toVisit.removeLast()
+            
+            if !visited.contains(room) {
+                visited.insert(room)
+                
+                for key in rooms[room] {
+                    toVisit.append(key)
+                }
+            }
+        }
+        
+        return visited.count == rooms.count
+    }
 }
 
 print(Solution().decodeString("3[a]2[bc]") == "aaabcbc") // aaabcbc
@@ -156,3 +175,6 @@ print(Solution().floodFill([[1,1,1],[1,1,0],[1,0,1]], 1, 1, 2)) // return [[2,2,
 
 print(Solution().updateMatrix([[0,0,0],[0,1,0],[0,0,0]])) // [[0,0,0],[0,1,0],[0,0,0]]
 print(Solution().updateMatrix([[0,0,0],[0,1,0],[1,1,1]])) // [[0,0,0],[0,1,0],[1,2,1]]
+
+print(Solution().canVisitAllRooms([[1],[2],[3],[]])) // true
+print(Solution().canVisitAllRooms([[1,3],[3,0,1],[2],[0]])) // false
