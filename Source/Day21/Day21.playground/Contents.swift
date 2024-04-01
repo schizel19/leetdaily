@@ -74,3 +74,35 @@ print(stack.pop()) // 5
 print(stack.empty()) // false
 print(stack.pop()) // 3
 print(stack.empty()) // true
+
+class Solution {
+    
+    func decodeString(_ s: String) -> String {
+        var stack = [(String, Int)]()
+        
+        var currNum = 0
+        var currStr = ""
+        
+        for char in s {
+            if char == "[" {
+                stack.append((currStr, currNum))
+                currStr = ""
+                currNum = 0
+            } else if char == "]" {
+                let (lastString, count) = stack.removeLast()
+                let str = (0..<count).reduce("", { sub, _ in sub + currStr })
+                currStr = lastString + str
+            } else if let i = Int("\(char)") {
+                currNum = currNum * 10 + i
+            } else {
+                currStr += "\(char)"
+            }
+        }
+        
+        return currStr
+    }
+}
+
+print(Solution().decodeString("3[a]2[bc]") == "aaabcbc") // aaabcbc
+print(Solution().decodeString("3[a2[c]]") == "accaccacc") // accaccacc
+print(Solution().decodeString("2[abc]3[cd]ef") == "abcabccdcdcdef") // abcabccdcdcdef
