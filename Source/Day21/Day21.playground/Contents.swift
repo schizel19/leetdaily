@@ -120,6 +120,32 @@ class Solution {
         flood(&image, sr, sc, color)
         return image
     }
+    
+    func updateMatrix(_ mat: [[Int]]) -> [[Int]] {
+        var distance = Array(repeating: Array(repeating: Int.max, count: mat[0].count), count: mat.count)
+        var queue = [(Int, Int)]()
+        
+        for row in 0..<mat.count {
+            for column in 0..<mat[0].count {
+                if mat[row][column] == 0 {
+                    queue.append((row, column))
+                    distance[row][column] = 0                    
+                }
+            }
+        }
+        
+        while !queue.isEmpty {
+            let (row, column) = queue.removeFirst()
+            for (r, c) in [(-1, 0), (1, 0), (0, -1), (0, 1)] {
+                let (newR, newC) = (row + r, column + c)
+                guard newR >= 0, newC >= 0, newR < mat.count, newC < mat[0].count, distance[newR][newC] == .max else { continue }
+                distance[newR][newC] = distance[row][column] + 1
+                queue.append((newR, newC))
+            }
+        }
+        
+        return distance
+    }
 }
 
 print(Solution().decodeString("3[a]2[bc]") == "aaabcbc") // aaabcbc
@@ -127,3 +153,6 @@ print(Solution().decodeString("3[a2[c]]") == "accaccacc") // accaccacc
 print(Solution().decodeString("2[abc]3[cd]ef") == "abcabccdcdcdef") // abcabccdcdcdef
 
 print(Solution().floodFill([[1,1,1],[1,1,0],[1,0,1]], 1, 1, 2)) // return [[2,2,2],[2,2,0],[2,0,1]]
+
+print(Solution().updateMatrix([[0,0,0],[0,1,0],[0,0,0]])) // [[0,0,0],[0,1,0],[0,0,0]]
+print(Solution().updateMatrix([[0,0,0],[0,1,0],[1,1,1]])) // [[0,0,0],[0,1,0],[1,2,1]]
