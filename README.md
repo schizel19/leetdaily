@@ -2,6 +2,13 @@
 This repository is for daily leet practice
 
 ## Table of Contents
+- [Day 21 - Queue & Stack: Challenges (pt. 4)](./Source%2FDay21%2FREADME.md#day-21---queue--stack-challenges-pt-4)
+  * [1. Implement Queue using Stacks](./Source%2FDay21%2FREADME.md#1-implement-queue-using-stacks)
+  * [2. Implement Stack using Queues](./Source%2FDay21%2FREADME.md#2-implement-stack-using-queues)
+  * [3. Decode String](./Source%2FDay21%2FREADME.md#3-decode-string)
+  * [4. Flood Fill](./Source%2FDay21%2FREADME.md#4-flood-fill)
+  * [5. 01 Matrix](./Source%2FDay21%2FREADME.md#5-01-matrix)
+  * [6. Keys and Rooms](./Source%2FDay21%2FREADME.md#6-keys-and-rooms)
 - [Day 20 - Queue & Stack: DFS (pt. 3)](./Source%2FDay20%2FREADME.md#day-20---queue--stack-dfs-pt-3)
   * [1. Number of Islands (dfs)](./Source%2FDay20%2FREADME.md#1-number-of-islands-dfs)
   * [2. Clone Graph](./Source%2FDay20%2FREADME.md#2-clone-graph)
