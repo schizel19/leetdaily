@@ -50,7 +50,33 @@ class Solution {
         
         return result
     }
+    
+    func postorderTraversal(_ root: TreeNode?) -> [Int] {
+        var result = [Int]()
+        var nodes = [root]
+        var visited = [false]
+        
+        while !nodes.isEmpty {
+            let curr = nodes.removeLast()
+            let v = visited.removeLast()
+            if let curr {
+                if v {
+                    result.append(curr.val)
+                } else {
+                    nodes.append(curr)
+                    visited.append(true)
+                    nodes.append(curr.right)
+                    visited.append(false)
+                    nodes.append(curr.left)
+                    visited.append(false)
+                }
+            }
+        }
+        
+        return result
+    }
 }
 
 print(Solution().preorderTraversal(node1)) // [1, 2, 3]
 print(Solution().inorderTraversal(node1)) // [1, 3, 2]
+print(Solution().postorderTraversal(node1)) // [3, 2, 1]
