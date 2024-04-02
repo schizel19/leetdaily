@@ -111,6 +111,29 @@ class Solution {
         
         return result
     }
+    
+    func levelOrder(_ root: TreeNode?) -> [[Int]] {
+        guard let root else { return [] }
+        var result = [[Int]]()
+        var queue: [(TreeNode, Int)] = [(root, 0)]
+        
+        while !queue.isEmpty {
+            let (node, level) = queue.removeFirst()
+            if result.count == level {
+                result.append([node.val])
+            } else {
+                result[level].append(node.val)
+            }
+            if let left = node.left {
+                queue.append((left, level + 1))
+            }
+            if let right = node.right {
+                queue.append((right, level + 1))
+            }
+        }
+        
+        return result
+    }
 }
 
 print(Solution().preorderTraversal(node1)) // [1, 2, 3]
@@ -120,3 +143,16 @@ print(Solution().postorderTraversal(node1)) // [3, 2, 1]
 print(Solution().preorderTraversal2(node1)) // [1, 2, 3]
 print(Solution().inorderTraversal2(node1)) // [1, 3, 2]
 print(Solution().postorderTraversal2(node1)) // [3, 2, 1]
+
+let nodeA = TreeNode(3)
+let nodeB = TreeNode(9)
+let nodeC = TreeNode(20)
+let nodeD = TreeNode(15)
+let nodeE = TreeNode(7)
+
+nodeA.left = nodeB
+nodeA.right = nodeC
+nodeC.left = nodeD
+nodeC.right = nodeE
+
+print(Solution().levelOrder(nodeA)) // [[3],[9,20],[15,7]]
