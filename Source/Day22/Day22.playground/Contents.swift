@@ -33,6 +33,18 @@ class Solution {
         return result
     }
     
+    func preorderTraversal2(_ root: TreeNode?) -> [Int] {
+        var result = [Int]()
+        
+        if let root {
+            result = [root.val]
+            result += preorderTraversal2(root.left)
+            result += preorderTraversal2(root.right)
+        }
+        
+        return result
+    }
+    
     func inorderTraversal(_ root: TreeNode?) -> [Int] {
         var result = [Int]()
         var nodes = [TreeNode?]()
@@ -46,6 +58,18 @@ class Solution {
             curr = nodes.removeLast()
             result.append(curr!.val)
             curr = curr?.right
+        }
+        
+        return result
+    }
+    
+    func inorderTraversal2(_ root: TreeNode?) -> [Int] {
+        var result = [Int]()
+        
+        if let root {
+            result += inorderTraversal2(root.left)
+            result += [root.val]
+            result += inorderTraversal2(root.right)
         }
         
         return result
@@ -75,8 +99,24 @@ class Solution {
         
         return result
     }
+    
+    func postorderTraversal2(_ root: TreeNode?) -> [Int] {
+        var result = [Int]()
+        
+        if let root {
+            result += postorderTraversal2(root.left)
+            result += postorderTraversal2(root.right)
+            result += [root.val]
+        }
+        
+        return result
+    }
 }
 
 print(Solution().preorderTraversal(node1)) // [1, 2, 3]
 print(Solution().inorderTraversal(node1)) // [1, 3, 2]
 print(Solution().postorderTraversal(node1)) // [3, 2, 1]
+
+print(Solution().preorderTraversal2(node1)) // [1, 2, 3]
+print(Solution().inorderTraversal2(node1)) // [1, 3, 2]
+print(Solution().postorderTraversal2(node1)) // [3, 2, 1]
