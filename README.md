@@ -2,6 +2,11 @@
 This repository is for daily leet practice
 
 ## Table of Contents
+- [Day 22 - Binary Tree: Traverse A Tree (pt. 1)](./Source%2FDay22%2FREADME.md#day-22---binary-tree-traverse-a-tree-pt-1)
+  * [1. Preorder Traversal](./Source%2FDay22%2FREADME.md#1-preorder-traversal)
+  * [2. Inorder Traversal](./Source%2FDay22%2FREADME.md#2-inorder-traversal)
+  * [3. Postorder Traversal](./Source%2FDay22%2FREADME.md#3-postorder-traversal)
+  * [4. Level Order Traversal](./Source%2FDay22%2FREADME.md#4-level-order-traversal)
 - [Day 21 - Queue & Stack: Challenges (pt. 4)](./Source%2FDay21%2FREADME.md#day-21---queue--stack-challenges-pt-4)
   * [1. Implement Queue using Stacks](./Source%2FDay21%2FREADME.md#1-implement-queue-using-stacks)
   * [2. Implement Stack using Queues](./Source%2FDay21%2FREADME.md#2-implement-stack-using-queues)
