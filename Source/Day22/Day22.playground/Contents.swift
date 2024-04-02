@@ -32,6 +32,25 @@ class Solution {
         
         return result
     }
+    
+    func inorderTraversal(_ root: TreeNode?) -> [Int] {
+        var result = [Int]()
+        var nodes = [TreeNode?]()
+        var curr = root
+        
+        while !nodes.isEmpty || curr != nil {
+            while curr != nil {
+                nodes.append(curr)
+                curr = curr?.left
+            }
+            curr = nodes.removeLast()
+            result.append(curr!.val)
+            curr = curr?.right
+        }
+        
+        return result
+    }
 }
 
 print(Solution().preorderTraversal(node1)) // [1, 2, 3]
+print(Solution().inorderTraversal(node1)) // [1, 3, 2]
