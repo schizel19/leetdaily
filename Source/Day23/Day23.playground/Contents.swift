@@ -37,6 +37,63 @@ class Solution {
         
         return isMirror(root?.left, root?.right)
     }
+    
+    // iterative
+    func isSymmetric2(_ root: TreeNode?) -> Bool {
+        var visitedLeft = Set<Int>()
+        var visitedRight = Set<Int>()
+        var queue = [(TreeNode, Bool)]()
+        
+        if root?.left == nil || root?.right == nil { return false }
+        
+        queue.append((root!.left!, false))
+        queue.append((root!.right!, true))
+        
+        while !queue.isEmpty {
+            let (curr, direction) = queue.removeFirst()
+            if direction == false {
+                if visitedRight.contains(curr.val) {
+                    visitedRight.remove(curr.val)
+                } else {
+                    visitedLeft.insert(curr.val)
+                }
+            } else {
+                if visitedLeft.contains(curr.val) {
+                    visitedLeft.remove(curr.val)
+                } else {
+                    visitedRight.insert(curr.val)
+                }
+            }
+            if curr.left != nil {
+                queue.append((curr.left!, false))
+            }
+            
+            if curr.right != nil {
+                queue.append((curr.right!, true))
+            }
+        }
+        
+        return visitedLeft.isEmpty && visitedRight.isEmpty
+    }
+    
+    func isSymmetric3(_ root: TreeNode?) -> Bool {
+        var stack = [root?.left, root?.right]
+        while !stack.isEmpty {
+            let node1 = stack.removeLast()
+            let node2 = stack.removeLast()
+            
+            if node1 == nil, node2 == nil, stack.isEmpty { break }
+            if node1 == nil, node2 == nil, !stack.isEmpty { continue }
+            if node1 == nil || node2 == nil { return false }
+            if node1!.val != node2!.val { return false }
+            stack.append(node1?.left)
+            stack.append(node2?.right)
+            stack.append(node1?.right)
+            stack.append(node2?.left)
+        }
+        
+        return true
+    }
 }
 
 print(Solution().maxDepth(node1))
@@ -57,6 +114,8 @@ nodeF.left = nodeH
 nodeF.right = nodeG
 
 print(Solution().isSymmetric(nodeA)) // true
+print(Solution().isSymmetric2(nodeA)) // true
+print(Solution().isSymmetric3(nodeA)) // true
 
 nodeA.left = nodeB
 nodeA.right = nodeF
@@ -66,3 +125,5 @@ nodeF.left = nil
 nodeF.right = nodeG
 
 print(Solution().isSymmetric(nodeA)) // false
+print(Solution().isSymmetric2(nodeA)) // false
+print(Solution().isSymmetric3(nodeA)) // false
