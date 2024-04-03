@@ -2,6 +2,11 @@
 This repository is for daily leet practice
 
 ## Table of Contents
+- [Day 23 - Binary Tree: Challenge (pt. 2)](./Source%2FDay23%2FREADME.md#day-23---binary-tree-challenge-pt-2)
+  * [1. Maximum Depth of Binary Tree](./Source%2FDay23%2FREADME.md#1-maximum-depth-of-binary-tree)
+  * [2. Symmetric Tree](./Source%2FDay23%2FREADME.md#2--symmetric-tree)
+  * [3. Path Sum](./Source%2FDay23%2FREADME.md#3-path-sum)
+  * [4. Construct Binary Tree from Inorder and Postorder Traversal](./Source%2FDay23%2FREADME.md#4-construct-binary-tree-from-inorder-and-postorder-traversal)
 - [Day 22 - Binary Tree: Traverse A Tree (pt. 1)](./Source%2FDay22%2FREADME.md#day-22---binary-tree-traverse-a-tree-pt-1)
   * [1. Preorder Traversal](./Source%2FDay22%2FREADME.md#1-preorder-traversal)
   * [2. Inorder Traversal](./Source%2FDay22%2FREADME.md#2-inorder-traversal)
