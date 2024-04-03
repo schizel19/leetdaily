@@ -95,9 +95,10 @@ class Solution {
         return true
     }
     
+    // iterative
     func hasPathSum(_ root: TreeNode?, _ targetSum: Int) -> Bool {
-        if root == nil { return false }
-        var stack: [(TreeNode, Int)] = [(root!, 0)]
+        guard let root else { return false }
+        var stack: [(TreeNode, Int)] = [(root, 0)]
         
         while !stack.isEmpty {
             let (curr, sum) = stack.removeFirst()
@@ -113,6 +114,15 @@ class Solution {
         }
         
         return false
+    }
+    
+    // recursive
+    func hasPathSum2(_ root: TreeNode?, _ targetSum: Int) -> Bool {
+        guard let root else { return false }
+        if root.left == nil, root.right == nil, root.val == targetSum {
+            return true
+        }
+        return hasPathSum2(root.left, targetSum - root.val) || hasPathSum2(root.right, targetSum - root.val)
     }
 
 }
@@ -166,4 +176,9 @@ let nodeA1 = TreeNode(1, nodeA2, nodeA3)
 print(Solution().hasPathSum(nodeP1, 22)) // true
 print(Solution().hasPathSum(nodeA1, 5)) // false
 print(Solution().hasPathSum(nil, 0)) // false
+
+print(Solution().hasPathSum2(nodeP1, 22)) // true
+print(Solution().hasPathSum2(nodeA1, 5)) // false
+print(Solution().hasPathSum2(nil, 0)) // false
+
 
