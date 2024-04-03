@@ -124,6 +124,24 @@ class Solution {
         }
         return hasPathSum2(root.left, targetSum - root.val) || hasPathSum2(root.right, targetSum - root.val)
     }
+    
+    func buildTree(_ inorder: [Int], _ postorder: [Int]) -> TreeNode? {
+        if inorder.isEmpty || postorder.isEmpty { return nil }
+        var postorder = postorder
+        
+        func helper(left: Int, right: Int) -> TreeNode? {
+            if left > right { return nil }
+            let root = TreeNode(postorder.removeLast())
+            let index = inorder.firstIndex(of: root.val)!
+            
+            root.right = helper(left: index + 1, right: right)
+            root.left = helper(left: left, right: index - 1)
+            
+            return root
+        }
+       
+        return helper(left: 0, right: inorder.count - 1)
+    }
 
 }
 
@@ -182,3 +200,5 @@ print(Solution().hasPathSum2(nodeA1, 5)) // false
 print(Solution().hasPathSum2(nil, 0)) // false
 
 
+let node = Solution().buildTree([9,3,15,20,7], [9,15,7,20,3]) // [3,9,20,null,null,15,7]
+print(node!.val) // 3
