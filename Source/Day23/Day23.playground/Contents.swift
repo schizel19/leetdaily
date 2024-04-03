@@ -94,6 +94,27 @@ class Solution {
         
         return true
     }
+    
+    func hasPathSum(_ root: TreeNode?, _ targetSum: Int) -> Bool {
+        if root == nil { return false }
+        var stack: [(TreeNode, Int)] = [(root!, 0)]
+        
+        while !stack.isEmpty {
+            let (curr, sum) = stack.removeFirst()
+            if curr.left == nil, curr.right == nil, curr.val + sum == targetSum {
+                return true
+            }
+            if curr.left != nil {
+                stack.append((curr.left!, curr.val + sum))
+            }
+            if curr.right != nil {
+                stack.append((curr.right!, curr.val + sum))
+            }
+        }
+        
+        return false
+    }
+
 }
 
 print(Solution().maxDepth(node1))
@@ -127,3 +148,22 @@ nodeF.right = nodeG
 print(Solution().isSymmetric(nodeA)) // false
 print(Solution().isSymmetric2(nodeA)) // false
 print(Solution().isSymmetric3(nodeA)) // false
+
+let nodeP9 = TreeNode(1)
+let nodeP8 = TreeNode(2)
+let nodeP7 = TreeNode(7)
+let nodeP6 = TreeNode(4, nil, nodeP9)
+let nodeP5 = TreeNode(13)
+let nodeP4 = TreeNode(11, nodeP7, nodeP8)
+let nodeP3 = TreeNode(8, nodeP5, nodeP6)
+let nodeP2 = TreeNode(4, nodeP4, nil)
+let nodeP1 = TreeNode(5, nodeP2, nodeP3)
+
+let nodeA3 = TreeNode(3)
+let nodeA2 = TreeNode(2)
+let nodeA1 = TreeNode(1, nodeA2, nodeA3)
+
+print(Solution().hasPathSum(nodeP1, 22)) // true
+print(Solution().hasPathSum(nodeA1, 5)) // false
+print(Solution().hasPathSum(nil, 0)) // false
+
