@@ -92,6 +92,7 @@ class Solution {
         return root
     }
     
+    // space: O(1)
     func connectII(_ root: Node?) -> Node? {
         var current = root
         var head, tail: Node?
@@ -125,6 +126,14 @@ class Solution {
         
         return root
     }
+    
+    func lowestCommonAncestor(_ root: TreeNode?, _ p: TreeNode?, _ q: TreeNode?) -> TreeNode? {
+        if root == nil || root === p || root === q { return root }
+        let left = lowestCommonAncestor(root?.left, p, q)
+        let right = lowestCommonAncestor(root?.right, p, q)
+        if left != nil && right != nil { return root }
+        return left ?? right
+    }
 }
 
 let node = Solution().buildTree([3,9,20,15,7], [9,3,15,20,7]) // [3,9,20,null,null,15,7]
@@ -143,3 +152,25 @@ print(n!.val)
 
 let n2 = Solution().connect2(nodeG)
 print(n!.val)
+
+let node0 = TreeNode(0)
+let node1 = TreeNode(1)
+let node2 = TreeNode(2)
+let node3 = TreeNode(3)
+let node4 = TreeNode(4)
+let node5 = TreeNode(5)
+let node6 = TreeNode(6)
+let node7 = TreeNode(7)
+let node8 = TreeNode(8)
+
+node3.left = node5
+node3.right = node1
+node5.left = node6
+node5.right = node2
+node2.left = node7
+node2.right = node4
+node1.left = node0
+node1.right = node8
+
+print(Solution().lowestCommonAncestor(node3, node5, node1)!.val) // node 3
+print(Solution().lowestCommonAncestor(node3, node5, node4)!.val) // node 5
