@@ -69,6 +69,26 @@ class Solution {
             }
             level += 1
         }
+        
+        return root
+    }
+    
+    func connect2(_ root: Node?) -> Node? {
+        guard let root else { return nil }
+        var current: Node? = root
+        var next = root.left
+        
+        while current != nil, next != nil {
+            current?.left?.next = current?.right
+            if current?.next != nil {
+                current?.right?.next = current?.next?.left
+            }
+            current = current?.next
+            if current == nil {
+                current = next
+                next = current?.left
+            }
+        }
         return root
     }
 }
@@ -85,4 +105,7 @@ let nodeF = Node(2, nodeD, nodeC)
 let nodeG = Node(1, nodeF, nodeE)
 
 let n = Solution().connect(nodeG)
+print(n!.val)
+
+let n2 = Solution().connect2(nodeG)
 print(n!.val)
