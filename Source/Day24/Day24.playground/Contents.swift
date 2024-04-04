@@ -173,4 +173,47 @@ node1.left = node0
 node1.right = node8
 
 print(Solution().lowestCommonAncestor(node3, node5, node1)!.val) // node 3
-print(Solution().lowestCommonAncestor(node3, node5, node4)!.val) // node 5
+//print(Solution().lowestCommonAncestor(node3, node5, node4)!.val) // node 5
+
+class Codec {
+    func serialize(_ root: TreeNode?) -> String {
+        var res = [String]()
+        
+        func dfs(_ node: TreeNode?) {
+            guard let node else {
+                res.append("N")
+                return
+            }
+            res.append("\(node.val)")
+            dfs(node.left)
+            dfs(node.right)
+        }
+        
+        dfs(root)
+        return res.joined(separator: ",")
+    }
+    
+    func deserialize(_ data: String) -> TreeNode? {
+        var values: [String] = data.split(separator: ",").map(String.init)
+        var i = 0
+        func dfs() -> TreeNode? {
+            guard let value = Int(values[i]) else {
+                i += 1
+                return nil
+            }
+            let node = TreeNode(value)
+            i += 1
+            node.left = dfs()
+            node.right = dfs()
+            return node
+        }
+        return dfs()
+    }
+}
+
+let codec = Codec()
+let serialized = codec.serialize(node3)
+print(serialized)
+
+print(codec.deserialize(serialized)!.val) // 3
+
