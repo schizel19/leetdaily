@@ -11,6 +11,19 @@ public class TreeNode {
   }
 }
 
+public class Node {
+    public var val: Int
+    public var left: Node?
+    public var right: Node?
+    public var next: Node?
+    public init(_ val: Int, _ left: Node? = nil, _ right: Node? = nil) {
+        self.val = val
+        self.left = left
+        self.right = right
+        self.next = nil
+    }
+}
+
 class Solution {
     func buildTree(_ preorder: [Int], _ inorder: [Int]) -> TreeNode? {
         if inorder.isEmpty || preorder.isEmpty { return nil }
@@ -29,7 +42,47 @@ class Solution {
        
         return helper(left: 0, right: inorder.count - 1)
     }
+    
+    func connect(_ root: Node?) -> Node? {
+        guard let root else { return nil }
+        var nodes = [(root, 0)]
+        var level = 0
+        while !nodes.isEmpty {
+            var (current, l) = nodes.removeFirst()
+            if let left = current.left {
+                nodes.append((left, l + 1))
+            }
+            if let right = current.right {
+                nodes.append((right, l + 1))
+            }
+            
+            while nodes.first?.1 == level {
+                let (next, _) = nodes.removeFirst()
+                current.next = next
+                current = next
+                if let left = current.left {
+                    nodes.append((left, l + 1))
+                }
+                if let right = current.right {
+                    nodes.append((right, l + 1))
+                }
+            }
+            level += 1
+        }
+        return root
+    }
 }
 
 let node = Solution().buildTree([3,9,20,15,7], [9,3,15,20,7]) // [3,9,20,null,null,15,7]
 print(node!.val) // 3
+
+let nodeA = Node(7)
+let nodeB = Node(6)
+let nodeC = Node(5)
+let nodeD = Node(4)
+let nodeE = Node(3, nodeB, nodeA)
+let nodeF = Node(2, nodeD, nodeC)
+let nodeG = Node(1, nodeF, nodeE)
+
+let n = Solution().connect(nodeG)
+print(n!.val)
