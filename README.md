@@ -2,6 +2,12 @@
 This repository is for daily leet practice
 
 ## Table of Contents
+- [Day 24 - Binary Tree: Challenge (pt. 3)](./Source%2FDay24%2FREADME.md#day-24---binary-tree-challenge-pt-3)
+  * [1. Construct Binary Tree from Preorder and Inorder Traversal](./Source%2FDay24%2FREADME.md#1-construct-binary-tree-from-preorder-and-inorder-traversal)
+  * [2. Populating Next Right Pointers in Each Node](./Source%2FDay24%2FREADME.md#2-populating-next-right-pointers-in-each-node)
+  * [3. Populating Next Right Pointers in Each Node II](./Source%2FDay24%2FREADME.md#3--populating-next-right-pointers-in-each-node-ii)
+  * [4. Lowest Common Ancestor of a Binary Tree](./Source%2FDay24%2FREADME.md#4-lowest-common-ancestor-of-a-binary-tree)
+  * [5. Serialize and Deserialize Binary Tree](./Source%2FDay24%2FREADME.md#5-serialize-and-deserialize-binary-tree)
 - [Day 23 - Binary Tree: Challenge (pt. 2)](./Source%2FDay23%2FREADME.md#day-23---binary-tree-challenge-pt-2)
   * [1. Maximum Depth of Binary Tree](./Source%2FDay23%2FREADME.md#1-maximum-depth-of-binary-tree)
   * [2. Symmetric Tree](./Source%2FDay23%2FREADME.md#2--symmetric-tree)
