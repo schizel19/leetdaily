@@ -91,6 +91,40 @@ class Solution {
         }
         return root
     }
+    
+    func connectII(_ root: Node?) -> Node? {
+        var current = root
+        var head, tail: Node?
+        
+        while current != nil {
+            if current?.left != nil {
+                if tail != nil {
+                    tail?.next = current?.left
+                    tail = current?.left
+                } else {
+                    tail = current?.left
+                    head = current?.left
+                }
+            }
+            if current?.right != nil {
+                if tail != nil {
+                    tail?.next = current?.right
+                    tail = current?.right
+                } else {
+                    tail = current?.right
+                    head = current?.right
+                }
+            }
+            current = current?.next
+            if current == nil {
+                current = head
+                head = nil
+                tail = nil
+            }
+        }
+        
+        return root
+    }
 }
 
 let node = Solution().buildTree([3,9,20,15,7], [9,3,15,20,7]) // [3,9,20,null,null,15,7]
