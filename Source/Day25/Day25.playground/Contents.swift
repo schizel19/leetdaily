@@ -52,6 +52,27 @@ class Solution {
         
         return helper(root, nil, nil)
     }
+    
+    func searchMatrix(_ matrix: [[Int]], _ target: Int) -> Bool {
+        guard !matrix.isEmpty else { return false }
+        var found = false
+        func findIn(m: Int, n: Int) -> Bool {
+            if found { return true }
+            guard m < matrix.count, m >= 0, n < matrix[0].count, n >= 0 else {
+                return false
+            }
+            let curr = matrix[m][n]
+            if curr == target { return true }
+            if target < curr {
+                found = (findIn(m: m, n: n - 1) || findIn(m: m - 1, n: n) || findIn(m: m - 1, n: n - 1))
+            } else {
+                found = findIn(m: m, n: n - 1)
+            }
+            return found
+        }
+        
+        return findIn(m: matrix.count/2, n: matrix[0].count/2)
+    }
 }
 
 print(Solution().sortArray([5,2,3,1])) // [1,2,3,5]
@@ -75,3 +96,23 @@ node4.left = node3
 node4.right = node6
 
 print(Solution().isValidBST(node5)) // false
+
+let matrix1 = [
+    [1,4,7,11,15],
+    [2,5,8,12,19],
+    [3,6,9,16,22],
+    [10,13,14,17,24],
+    [18,21,23,26,30]
+]
+
+print(Solution().searchMatrix(matrix1, 5))
+
+let matrix2 = [
+    [1,4,7,11,15],
+    [2,5,8,12,19],
+    [3,6,9,16,22],
+    [10,13,14,17,24],
+    [18,21,23,26,30]
+]
+
+print(Solution().searchMatrix(matrix2, 20))
