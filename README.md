@@ -2,6 +2,10 @@
 This repository is for daily leet practice
 
 ## Table of Contents
+- [Day 25 - Recursion II: Divide and Conquer (pt. 1)](./Source%2FDay25%2FREADME.md#day-25---recursion-ii-divide-and-conquer-pt-1)
+  * [1. Sort an Array](./Source%2FDay25%2FREADME.md#1-sort-an-array)
+  * [2. Validate Binary Search Tree](./Source%2FDay25%2FREADME.md#2-validate-binary-search-tree)
+  * [3. Search a 2D Matrix II](./Source%2FDay25%2FREADME.md#3-search-a-2d-matrix-ii)
 - [Day 24 - Binary Tree: Challenge (pt. 3)](./Source%2FDay24%2FREADME.md#day-24---binary-tree-challenge-pt-3)
   * [1. Construct Binary Tree from Preorder and Inorder Traversal](./Source%2FDay24%2FREADME.md#1-construct-binary-tree-from-preorder-and-inorder-traversal)
   * [2. Populating Next Right Pointers in Each Node](./Source%2FDay24%2FREADME.md#2-populating-next-right-pointers-in-each-node)
