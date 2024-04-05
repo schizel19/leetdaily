@@ -54,10 +54,9 @@ class Solution {
     }
     
     func searchMatrix(_ matrix: [[Int]], _ target: Int) -> Bool {
-        guard !matrix.isEmpty else { return false }
+        if matrix.isEmpty { return false }
         
         func findIn(startR: Int, endR: Int, startC: Int, endC: Int) -> Bool {
-            if startR < 0 || startC < 0 || endR == matrix.count || endC == matrix[0].count { return false }
             if startR > endR || startC > endC { return false }
             let midR = (startR + endR) / 2
             let midC = (startC + endC) / 2
@@ -67,17 +66,16 @@ class Solution {
             
             if target < current {
                 return findIn(startR: startR, endR: midR - 1, startC: startC, endC: midC - 1)
-                || findIn(startR: startR, endR: midR, startC: startC, endC: midC - 1)
-                || findIn(startR: startR, endR: midR - 1, startC: startC, endC: midC)
+                || findIn(startR: startR, endR: midR - 1, startC: midC, endC: endC)
+                || findIn(startR: midR, endR: endR, startC: startC, endC: midC - 1)
             }
             
-            return findIn(startR: midR + 1, endR: endR, startC: midC + 1, endC: endC)
-            || findIn(startR: midR + 1, endR: endR, startC: midC, endC: endC)
-            || findIn(startR: midR, endR: endR, startC: midC + 1, endC: endC)
-            
+            return findIn(startR: startR, endR: midR, startC: midC + 1, endC: endC)
+            || findIn(startR: midR + 1, endR: endR, startC: startC, endC: midC)
+            || findIn(startR: midR + 1, endR: endR, startC: midC + 1, endC: endC)
         }
         
-        return findIn(startR: 0, endR: matrix.count, startC: 0, endC: matrix[0].count)
+        return findIn(startR: 0, endR: matrix.count - 1, startC: 0, endC: matrix[0].count - 1)
     }
 }
 
@@ -122,3 +120,13 @@ let matrix2 = [
 ]
 
 print(Solution().searchMatrix(matrix2, 20))
+
+let matrix3 = [
+    [1,2,3,4,5],
+    [6,7,8,9,10],
+    [11,12,13,14,15],
+    [16,17,18,19,20],
+    [21,22,23,24,25]
+]
+
+print(Solution().searchMatrix(matrix3, 15))
