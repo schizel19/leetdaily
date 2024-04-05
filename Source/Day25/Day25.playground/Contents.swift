@@ -55,23 +55,29 @@ class Solution {
     
     func searchMatrix(_ matrix: [[Int]], _ target: Int) -> Bool {
         guard !matrix.isEmpty else { return false }
-        var found = false
-        func findIn(m: Int, n: Int) -> Bool {
-            if found { return true }
-            guard m < matrix.count, m >= 0, n < matrix[0].count, n >= 0 else {
-                return false
+        
+        func findIn(startR: Int, endR: Int, startC: Int, endC: Int) -> Bool {
+            if startR < 0 || startC < 0 || endR == matrix.count || endC == matrix[0].count { return false }
+            if startR > endR || startC > endC { return false }
+            let midR = (startR + endR) / 2
+            let midC = (startC + endC) / 2
+            
+            let current = matrix[midR][midC]
+            if matrix[midR][midC] == target { return true }
+            
+            if target < current {
+                return findIn(startR: startR, endR: midR - 1, startC: startC, endC: midC - 1)
+                || findIn(startR: startR, endR: midR, startC: startC, endC: midC - 1)
+                || findIn(startR: startR, endR: midR - 1, startC: startC, endC: midC)
             }
-            let curr = matrix[m][n]
-            if curr == target { return true }
-            if target < curr {
-                found = (findIn(m: m, n: n - 1) || findIn(m: m - 1, n: n) || findIn(m: m - 1, n: n - 1))
-            } else {
-                found = findIn(m: m, n: n - 1)
-            }
-            return found
+            
+            return findIn(startR: midR + 1, endR: endR, startC: midC + 1, endC: endC)
+            || findIn(startR: midR + 1, endR: endR, startC: midC, endC: endC)
+            || findIn(startR: midR, endR: endR, startC: midC + 1, endC: endC)
+            
         }
         
-        return findIn(m: matrix.count/2, n: matrix[0].count/2)
+        return findIn(startR: 0, endR: matrix.count, startC: 0, endC: matrix[0].count)
     }
 }
 
