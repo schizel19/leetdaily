@@ -91,7 +91,31 @@ class Solution {
         
         solve()
     }
+    
+    func combine(_ n: Int, _ k: Int) -> [[Int]] {
+        var results = [[Int]]()
+        var current = [Int]()
+        func backtrack(_ i: Int) {
+            if current.count == k {
+                results.append(current)
+                return
+            }
+            
+            for num in i..<n+1 {
+                current.append(num)
+                backtrack(num + 1)
+                current.popLast()
+            }
+        }
+        backtrack(1)
+        return results
+    }
 }
+
+
+print(Solution().combine(4, 2)) //[[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]
+print(Solution().combine(1, 1)) //[[1]]
+
 
 print(Solution().totalNQueens(1)) // 1
 print(Solution().totalNQueens(4)) // 2
@@ -122,5 +146,4 @@ let expectedResult: [[Character]] = [
 
 print(board)
 print(board == expectedResult) // true
-
 
