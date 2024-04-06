@@ -1,4 +1,4 @@
-#  [Day 26 - Recursion II: Backtracking](https://leetcode.com/explore/learn/card/recursion-ii/472/backtracking/)
+#  [Day 26 - Recursion II: Backtracking (pt. 2)](https://leetcode.com/explore/learn/card/recursion-ii/472/backtracking/)
 
 
 ## 1. N-Queens II
