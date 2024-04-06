@@ -2,6 +2,10 @@
 This repository is for daily leet practice
 
 ## Table of Contents
+- [Day 26 - Recursion II: Backtracking](./Source%2FDay26%2FREADME.md#day-26---recursion-ii-backtracking)
+  * [1. N-Queens II](./Source%2FDay26%2FREADME.md#1-n-queens-ii)
+  * [2. Sudoku Solver](./Source%2FDay26%2FREADME.md#2-sudoku-solver)
+  * [3. Combinations](./Source%2FDay26%2FREADME.md#3-combinations)
 - [Day 25 - Recursion II: Divide and Conquer (pt. 1)](./Source%2FDay25%2FREADME.md#day-25---recursion-ii-divide-and-conquer-pt-1)
   * [1. Sort an Array](./Source%2FDay25%2FREADME.md#1-sort-an-array)
   * [2. Validate Binary Search Tree](./Source%2FDay25%2FREADME.md#2-validate-binary-search-tree)
