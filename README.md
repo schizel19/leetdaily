@@ -2,7 +2,7 @@
 This repository is for daily leet practice
 
 ## Table of Contents
-- [Day 26 - Recursion II: Backtracking](./Source%2FDay26%2FREADME.md#day-26---recursion-ii-backtracking)
+- [Day 26 - Recursion II: Backtracking (pt. 2)](./Source%2FDay26%2FREADME.md#day-26---recursion-ii-backtracking)
   * [1. N-Queens II](./Source%2FDay26%2FREADME.md#1-n-queens-ii)
   * [2. Sudoku Solver](./Source%2FDay26%2FREADME.md#2-sudoku-solver)
   * [3. Combinations](./Source%2FDay26%2FREADME.md#3-combinations)
