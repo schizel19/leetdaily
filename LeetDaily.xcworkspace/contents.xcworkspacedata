@@ -21,6 +21,16 @@
       location = "group:Source"
       name = "Source">
       <Group
+         location = "group:Day27"
+         name = "Day27">
+         <FileRef
+            location = "group:README.md">
+         </FileRef>
+         <FileRef
+            location = "group:Day27.playground">
+         </FileRef>
+      </Group>
+      <Group
          location = "group:Day26"
          name = "Day26">
          <FileRef
