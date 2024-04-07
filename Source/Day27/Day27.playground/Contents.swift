@@ -158,6 +158,76 @@ class Solution {
         
         return result
     }
+    
+    func getSkyline(_ buildings: [[Int]]) -> [[Int]] {
+        if buildings.isEmpty { return .init() }
+        
+        func divideAndConquer(_ left: Int, _ right: Int) -> [[Int]] {
+            if left == right {
+                let (l, h, r) = (buildings[left][0], buildings[left][2], buildings[left][1])
+                return [[l, h], [r, 0]]
+            }
+            
+            let mid = left + (right - left)/2
+            let leftSkyline = divideAndConquer(left, mid)
+            let rightSkyline = divideAndConquer(mid + 1, right)
+            return mergeSkyline(leftSkyline, rightSkyline)
+        }
+        
+        func mergeSkyline(_ leftSkyline: [[Int]], _ rightSkyline: [[Int]]) -> [[Int]] {
+            var mergedSkyline = [[Int]]()
+            var i = 0, j = 0
+            var leftH = 0, rightH = 0, maxHeight = 0
+                
+            while i < leftSkyline.count && j < rightSkyline.count {
+                let (lx, lh) = (leftSkyline[i][0], leftSkyline[i][1])
+                let (rx, rh) = (rightSkyline[j][0], rightSkyline[j][1])
+                
+                if lx < rx {
+                    leftH = lh
+                    maxHeight = max(leftH, rightH)
+                    if mergedSkyline.isEmpty || maxHeight != mergedSkyline.last![1] {
+                        mergedSkyline.append([lx, maxHeight])
+                    }
+                    i += 1
+                } else if lx > rx {
+                    rightH = rh
+                    maxHeight = max(leftH, rightH)
+                    if mergedSkyline.isEmpty || maxHeight != mergedSkyline.last![1] {
+                        mergedSkyline.append([rx, maxHeight])
+                    }
+                    j += 1
+                } else {
+                    leftH = lh
+                    rightH = rh
+                    maxHeight = max(leftH, rightH)
+                    if !mergedSkyline.isEmpty && maxHeight == mergedSkyline.last![1] {
+                        i += 1
+                        j += 1
+                    } else {
+                        mergedSkyline.append([lx, maxHeight])
+                        i += 1
+                        j += 1
+                    }
+                }
+            }
+            
+            while i < leftSkyline.count {
+                mergedSkyline.append(leftSkyline[i])
+                i += 1
+            }
+            
+            while j < rightSkyline.count {
+                mergedSkyline.append(rightSkyline[j])
+                j += 1
+            }
+            
+            return mergedSkyline
+        }
+        
+        return divideAndConquer(0, buildings.count - 1)
+    }
+
 }
 
 let node3 = TreeNode(3)
@@ -185,3 +255,7 @@ print(Solution().largestRectangleArea2([2,1,5,6,2,3])) // 10
 print(Solution().permute([1, 2, 3])) // [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
 
 print(Solution().letterCombinations("23")) //["ad","ae","af","bd","be","bf","cd","ce","cf"]
+
+print(Solution().getSkyline([[2,9,10],[3,7,15],[5,12,12],[15,20,10],[19,24,8]])) // [[2,10],[3,15],[7,12],[12,0],[15,10],[20,8],[24,0]]
+
+print(Solution().getSkyline([[0,2,3],[2,5,3]])) //[[0,3],[5,0]]
