@@ -2,6 +2,13 @@
 This repository is for daily leet practice
 
 ## Table of Contents
+- [Day 27 - Recursion II: Recursion to Iteration (pt. 3)](./Source%2FDay27%2FREADME.md#day-27---recursion-ii-recursion-to-iteration-pt-3)
+  * [1. Same Tree](./Source%2FDay27%2FREADME.md#1-same-tree)
+  * [2. Generate Parentheses](./Source%2FDay27%2FREADME.md#2-generate-parentheses)
+  * [3. Largest Rectangle in Histogram](./Source%2FDay27%2FREADME.md#3-largest-rectangle-in-histogram)
+  * [4. Permutations](./Source%2FDay27%2FREADME.md#4-permutations)
+  * [5. Letter Combinations of a Phone Number](./Source%2FDay27%2FREADME.md#5-letter-combinations-of-a-phone-number)
+  * [6. The Skyline Problem](./Source%2FDay27%2FREADME.md#6-the-skyline-problem)
 - [Day 26 - Recursion II: Backtracking (pt. 2)](./Source%2FDay26%2FREADME.md#day-26---recursion-ii-backtracking)
   * [1. N-Queens II](./Source%2FDay26%2FREADME.md#1-n-queens-ii)
   * [2. Sudoku Solver](./Source%2FDay26%2FREADME.md#2-sudoku-solver)
