@@ -101,6 +101,32 @@ class Solution {
         
         return calculateMaxArea(0, heights.count - 1)
     }
+    
+    func permute(_ nums: [Int]) -> [[Int]] {
+        var result = [[Int]]()
+        var stack = [([Int], [Int])]() //prefix, candidates
+        
+        stack.append(([], nums))
+        
+        while !stack.isEmpty {
+            var (pre, candidates) = stack.removeLast()
+            
+            if pre.count == nums.count {
+                result.append(pre)
+                continue
+            }
+            
+            for i in 0..<candidates.count {
+                var new = candidates
+                let num = new.remove(at: i)
+                stack.append((pre + [num], new))
+            }
+        }
+        
+        return result
+    }
+    
+    
 }
 
 let node3 = TreeNode(3)
@@ -124,3 +150,5 @@ print(Solution().largestRectangleArea([2, 4])) // 4
 print(Solution().largestRectangleArea([2,1,5,6,2,3])) // 10
 print(Solution().largestRectangleArea2([2, 4])) // 4
 print(Solution().largestRectangleArea2([2,1,5,6,2,3])) // 10
+
+print(Solution().permute([1, 2, 3])) // [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
