@@ -53,7 +53,30 @@ class Solution {
         return result
     }
     
+    // iterative
     func largestRectangleArea(_ heights: [Int]) -> Int {
+        var stack = [(Int, Int)]() // index, height
+        var maxArea = 0
+        
+        for (i, h) in heights.enumerated() {
+            var start = i
+            while !stack.isEmpty, stack.last!.1 > h {
+                let (index, height) = stack.removeLast()
+                maxArea = max(maxArea, height * (i - index))
+                start = index
+            }
+            stack.append((start, h))
+        }
+        
+        for (i, h) in stack {
+            maxArea = max(maxArea, h * (heights.count - i))
+        }
+        
+        return maxArea
+    }
+    
+    // recursive
+    func largestRectangleArea2(_ heights: [Int]) -> Int {
         if heights.isEmpty { return 0 }
         var memo = [String: Int]()
         func calculateMaxArea(_ start: Int, _ end: Int) -> Int {
@@ -99,3 +122,5 @@ print(Solution().generateParenthesis(1)) // ["()"]
 
 print(Solution().largestRectangleArea([2, 4])) // 4
 print(Solution().largestRectangleArea([2,1,5,6,2,3])) // 10
+print(Solution().largestRectangleArea2([2, 4])) // 4
+print(Solution().largestRectangleArea2([2,1,5,6,2,3])) // 10
