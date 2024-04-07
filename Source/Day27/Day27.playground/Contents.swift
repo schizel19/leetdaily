@@ -52,6 +52,32 @@ class Solution {
         
         return result
     }
+    
+    func largestRectangleArea(_ heights: [Int]) -> Int {
+        if heights.isEmpty { return 0 }
+        var memo = [String: Int]()
+        func calculateMaxArea(_ start: Int, _ end: Int) -> Int {
+            if start > end { return 0 }
+            if let cached = memo["\(start),\(end)"] {
+                return cached
+            }
+            
+            var minIndex = start
+            for i in start...end {
+                if heights[i] < heights[minIndex] {
+                    minIndex = i
+                }
+            }
+            
+            let area1 = heights[minIndex] * (end - start + 1)
+            let area2 = calculateMaxArea(start, minIndex - 1)
+            let area3 = calculateMaxArea(minIndex + 1, end)
+            memo["\(start),\(end)"] = max(area1, area2, area3)
+            return max(area1, area2, area3)
+        }
+        
+        return calculateMaxArea(0, heights.count - 1)
+    }
 }
 
 let node3 = TreeNode(3)
@@ -70,3 +96,6 @@ print(Solution().isSameTree(node1, nodeA)) // true
 print(Solution().isSameTree(node1, nodeT1)) // false
 print(Solution().generateParenthesis(3)) // ["((()))","(()())","(())()","()(())","()()()"]
 print(Solution().generateParenthesis(1)) // ["()"]
+
+print(Solution().largestRectangleArea([2, 4])) // 4
+print(Solution().largestRectangleArea([2,1,5,6,2,3])) // 10
