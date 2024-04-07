@@ -28,6 +28,30 @@ class Solution {
         
         return true
     }
+    
+    func generateParenthesis(_ n: Int) -> [String] {
+        if n == 0 { return [] }
+        var result = [String]()
+        var stack = [(String, Int, Int)]()
+        
+        stack.append(("", 0, 0))
+        
+        while !stack.isEmpty {
+            let (current, open, close) = stack.removeLast()
+            if current.count == n * 2 {
+                result.append(current)
+            } else {
+                if open < n {
+                    stack.append((current + "(", open + 1, close))
+                }
+                if close < open {
+                    stack.append((current + ")", open, close + 1))
+                }
+            }
+        }
+        
+        return result
+    }
 }
 
 let node3 = TreeNode(3)
@@ -44,5 +68,5 @@ let nodeT1 = TreeNode(1, nodeT2, nodeT3)
 
 print(Solution().isSameTree(node1, nodeA)) // true
 print(Solution().isSameTree(node1, nodeT1)) // false
-
-
+print(Solution().generateParenthesis(3)) // ["((()))","(()())","(())()","()(())","()()()"]
+print(Solution().generateParenthesis(1)) // ["()"]
