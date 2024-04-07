@@ -126,7 +126,38 @@ class Solution {
         return result
     }
     
-    
+    func letterCombinations(_ digits: String) -> [String] {
+        if digits.isEmpty { return [] }
+        let map: [Character: [String]] = [
+            "2": ["a", "b", "c"],
+            "3": ["d", "e", "f"],
+            "4": ["g", "h", "i"],
+            "5": ["j", "k", "l"],
+            "6": ["m", "n", "o"],
+            "7": ["p", "q", "r", "s"],
+            "8": ["t", "u", "v"],
+            "9": ["w", "x", "y", "z"],
+        ]
+        
+        var result = [String]()
+        var stack = [(String, String)]()
+        
+        stack.append(("", digits))
+        
+        while !stack.isEmpty {
+            var (curr, str) = stack.removeLast()
+            if curr.count == digits.count {
+                result.append(curr)
+                continue
+            }
+            let char = str.removeFirst()
+            for c in map[char] ?? [] {
+                stack.append((curr + c, str))
+            }
+        }
+        
+        return result
+    }
 }
 
 let node3 = TreeNode(3)
@@ -152,3 +183,5 @@ print(Solution().largestRectangleArea2([2, 4])) // 4
 print(Solution().largestRectangleArea2([2,1,5,6,2,3])) // 10
 
 print(Solution().permute([1, 2, 3])) // [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+
+print(Solution().letterCombinations("23")) //["ad","ae","af","bd","be","bf","cd","ce","cf"]
