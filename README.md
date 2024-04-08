@@ -2,6 +2,10 @@
 This repository is for daily leet practice
 
 ## Table of Contents
+- [Day 28 - Trie: Practical Application I (pt. 1)](./Source%2FDay28%2FREADME.md#day-28---trie-practical-application-i-pt-1)
+  * [1. Implement Trie (Prefix Tree)](./Source%2FDay28%2FREADME.md#1-implement-trie-prefix-tree)
+  * [2. Map Sum Pairs](./Source%2FDay28%2FREADME.md#2-map-sum-pairs)
+  * [3. Replace Words](./Source%2FDay28%2FREADME.md#3-replace-words)
 - [Day 27 - Recursion II: Recursion to Iteration (pt. 3)](./Source%2FDay27%2FREADME.md#day-27---recursion-ii-recursion-to-iteration-pt-3)
   * [1. Same Tree](./Source%2FDay27%2FREADME.md#1-same-tree)
   * [2. Generate Parentheses](./Source%2FDay27%2FREADME.md#2-generate-parentheses)
