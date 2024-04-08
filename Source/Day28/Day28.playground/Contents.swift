@@ -1,6 +1,5 @@
 class Trie {
     fileprivate class Node {
-        var text: String?
         var children = [Character: Node]()
         var isWord: Bool = false
     }
@@ -105,3 +104,60 @@ mapSum.insert("apple", 3)
 mapSum.sum("ap") // 3
 mapSum.insert("app", 2)
 mapSum.sum("ap") // 5
+
+class Solution {
+    class SearchTrie {
+        class Node {
+            var children = [Character: Node]()
+            var isWord: Bool = false
+        }
+        
+        private var root = Node()
+        
+        func insert(_ word: String) {
+            var current = root
+            for char in word {
+                var node = current.children[char] ?? .init()
+                current.children[char] = node
+                current = node
+            }
+            current.isWord = true
+        }
+        
+        func replace(_ word: String) -> String {
+            var current = root
+            var prefix = ""
+            var isPrefix: Bool = false
+            for char in word {
+                if current.isWord {
+                    break
+                }
+                
+                if let node = current.children[char] {
+                    prefix += "\(char)"
+                    current = node
+                } else {
+                    break
+                }
+            }
+            
+            if current.isWord {
+                isPrefix = true
+            }
+            
+            return isPrefix ? prefix : word
+        }
+    }
+    
+    
+    func replaceWords(_ dictionary: [String], _ sentence: String) -> String {
+        let trie = SearchTrie()
+        for word in dictionary {
+            trie.insert(word)
+        }
+        
+        return sentence.split(separator: " ").map { trie.replace(String($0)) }.joined(separator: " ")
+    }
+}
+
+print(Solution().replaceWords(["cat","bat","rat"], "the cattle was rattled by the battery")) //"the cat was rat by the bat"
