@@ -45,6 +45,8 @@ class WordDictionary {
         }
         return current.isWord
     }
+    
+    
 }
 
 let wordDictionary = WordDictionary()
@@ -64,4 +66,57 @@ wordDictionary2.search("a")
 wordDictionary2.search("aa")
 
 
+class IntegerTrie {
+    class Node {
+        var children: [Node?] = Array(repeating: nil, count: 2)
+    }
+    
+    let root = Node()
+    
+    func insert(_ num: Int) {
+        var current = root
+        for i in stride(from: 31, through: 0, by: -1) {
+            let bit = (num >> i) & 1
+            let node = current.children[bit] ?? Node()
+            current.children[bit] = node
+            current = node
+        }
+    }
+}
+
+class Solution {
+    func findMaximumXOR(_ nums: [Int]) -> Int {
+        let trie = IntegerTrie()
+        
+        for num in nums {
+            trie.insert(num)
+        }
+        
+        var maxXOR = 0
+        
+        for num in nums {
+            var current = trie.root
+            var result = 0
+            
+            for i in stride(from: 31, through: 0, by: -1) {
+                let bit = (num >> i) & 1
+                let oppositeBit = bit ^ 1
+                
+                if let next = current.children[oppositeBit] {
+                    result |= (1 << i)
+                    current = next
+                } else {
+                    current = current.children[bit]!
+                }
+            }
+            
+            maxXOR = max(maxXOR, result)
+        }
+        
+        return maxXOR
+    }
+}
+
+print(Solution().findMaximumXOR([3,10,5,25,2,8])) // 28
+print(Solution().findMaximumXOR([14,70,53,83,49,91,36,80,92,51,66,70])) //127
 
