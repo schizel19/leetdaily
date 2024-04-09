@@ -115,8 +115,72 @@ class Solution {
         
         return maxXOR
     }
+    
+    class TrieNode {
+        var isWord: Bool = false
+        var children = [Character: TrieNode]()
+        
+        func insert(_ word: String) {
+            var current = self
+            for char in word {
+                let node = current.children[char] ?? TrieNode()
+                current.children[char] = node
+                current = node
+            }
+            current.isWord = true
+        }
+    }
+    
+    func findWords(_ board: [[Character]], _ words: [String]) -> [String] {
+        if board.isEmpty { return [] }
+        let root = TrieNode()
+        
+        for word in words {
+            root.insert(word)
+        }
+        
+        let (rows, cols) = (board.count, board[0].count)
+        var result = Set<String>()
+        
+        func dfs(_ board: [[Character]], _ row: Int, _ col: Int, _ node: TrieNode, _ word: String) {
+            guard 0..<rows ~= row, 0..<cols ~= col,
+                  let node = node.children[board[row][col]] else {
+                return
+            }
+            
+            let char = board[row][col]
+            var board = board
+            var word = word + "\(char)"
+            if node.isWord == true {
+                result.insert(word)
+            }
+            board[row][col] = "#"
+            dfs(board, row + 1, col, node, word)
+            dfs(board, row - 1, col, node, word)
+            dfs(board, row, col + 1, node, word)
+            dfs(board, row, col - 1, node, word)
+            board[row][col] = char
+        }
+        
+        for row in 0..<rows {
+            for col in 0..<cols {
+                dfs(board, row, col, root, "")
+            }
+        }
+        
+        return Array(result)
+    }
 }
 
 print(Solution().findMaximumXOR([3,10,5,25,2,8])) // 28
 print(Solution().findMaximumXOR([14,70,53,83,49,91,36,80,92,51,66,70])) //127
-
+print(Solution().findWords([
+    ["o","a","a","n"],
+    ["e","t","a","e"],
+    ["i","h","k","r"],
+    ["i","f","l","v"]
+], ["oath","pea","eat","rain"])) // [eat, oat]
+print(Solution().findWords([
+    ["a","b"],
+    ["c","d"]
+], ["abcb"])) // []
