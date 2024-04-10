@@ -1,4 +1,4 @@
-#  [Day 18 - Queue & Stack: Queue and BFS (pt. 1)] (https://leetcode.com/explore/learn/card/queue-stack/)
+#  [Day 18 - Queue & Stack: Queue and BFS (pt. 1)](https://leetcode.com/explore/learn/card/queue-stack/)
 
 ## 1. Design Circular Queue
 

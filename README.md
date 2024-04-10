@@ -2,6 +2,10 @@
 This repository is for daily leet practice
 
 ## Table of Contents
+- [Day 30 - Binary Search Tree: Basic Operation (pt. 1)](./Source%2FDay30%2FREADME.md#day-30---binary-search-tree-basic-operation-pt-1)
+  * [1. Binary Search Tree Iterator](./Source%2FDay30%2FREADME.md#1-binary-search-tree-iterator)
+  * [2. Insert into a Binary Search Tree](./Source%2FDay30%2FREADME.md#2-insert-into-a-binary-search-tree)
+  * [3. Delete Node in a BST](./Source%2FDay30%2FREADME.md#3-delete-node-in-a-bst)
 - [Day 29 - Trie: Practical Application II (pt. 2)](./Source%2FDay29%2FREADME.md#day-29---trie-practical-application-ii-pt-2)
   * [1. Add and Search Word - Data structure design](./Source%2FDay29%2FREADME.md#1-add-and-search-word---data-structure-design)
   * [2. Maximum XOR of Two Numbers in an Array](./Source%2FDay29%2FREADME.md#2-maximum-xor-of-two-numbers-in-an-array)

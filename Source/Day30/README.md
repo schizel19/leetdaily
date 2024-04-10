@@ -1,4 +1,4 @@
-#  [Day 30 - Binary Search Tree: Basic Operation (pt. 1)] (https://leetcode.com/explore/learn/card/introduction-to-data-structure-binary-search-tree/140/introduction-to-a-bst/)
+#  [Day 30 - Binary Search Tree: Basic Operation (pt. 1)](https://leetcode.com/explore/learn/card/introduction-to-data-structure-binary-search-tree/140/introduction-to-a-bst/)
 
 ## 1. Binary Search Tree Iterator
 
