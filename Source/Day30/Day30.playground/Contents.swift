@@ -50,3 +50,15 @@ print(bst.next()) // 15
 print(bst.hasNext()) // true
 print(bst.next()) // 20
 print(bst.hasNext()) // false
+
+class Solution {
+    func insertIntoBST(_ root: TreeNode?, _ val: Int) -> TreeNode? {
+        guard let root else { return TreeNode(val) }
+        if root.val < val {
+            root.right = insertIntoBST(root.right, val)
+        } else {
+            root.left = insertIntoBST(root.left, val)
+        }
+        return root
+    }
+}
