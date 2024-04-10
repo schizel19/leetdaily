@@ -2,6 +2,10 @@
 This repository is for daily leet practice
 
 ## Table of Contents
+- [Day 29 - Trie: Practical Application II (pt. 2)](./Source%2FDay29%2FREADME.md#day-29---trie-practical-application-ii-pt-2)
+  * [1. Add and Search Word - Data structure design](./Source%2FDay29%2FREADME.md#1-add-and-search-word---data-structure-design)
+  * [2. Maximum XOR of Two Numbers in an Array](./Source%2FDay29%2FREADME.md#2-maximum-xor-of-two-numbers-in-an-array)
+  * [3. Word Search II](./Source%2FDay29%2FREADME.md#3-word-search-ii)
 - [Day 28 - Trie: Practical Application I (pt. 1)](./Source%2FDay28%2FREADME.md#day-28---trie-practical-application-i-pt-1)
   * [1. Implement Trie (Prefix Tree)](./Source%2FDay28%2FREADME.md#1-implement-trie-prefix-tree)
   * [2. Map Sum Pairs](./Source%2FDay28%2FREADME.md#2-map-sum-pairs)
