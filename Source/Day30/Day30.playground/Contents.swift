@@ -61,4 +61,30 @@ class Solution {
         }
         return root
     }
+    
+    func deleteNode(_ root: TreeNode?, _ key: Int) -> TreeNode? {
+        guard let root else { return nil }
+        
+        if key < root.val {
+            root.left = deleteNode(root.left, key)
+            return root
+        }
+        
+        if key > root.val {
+            root.right = deleteNode(root.right, key)
+            return root
+        }
+        
+        if root.left == nil { return root.right }
+        if root.right == nil { return root.left }
+        
+        var current = root.right
+        while current?.left != nil {
+            current = current?.left
+        }
+        
+        root.val = current!.val
+        root.right = deleteNode(root.right, current!.val)
+        return root
+    }
 }
